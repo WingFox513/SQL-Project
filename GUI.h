@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Project22 {
+namespace <Name of Project> {
 
 	using namespace System;
 	using namespace System::ComponentModel;
