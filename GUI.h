@@ -1,6 +1,6 @@
 #pragma once
 
-namespace <Name of Project> {
+namespace <Name of Project> {			//replace with name of c++ project (ex: project 12)
 
 	using namespace System;
 	using namespace System::ComponentModel;
