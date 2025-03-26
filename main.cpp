@@ -10,7 +10,7 @@ int main(array<String^>^ args)
     Application::SetCompatibleTextRenderingDefault(false);
 
    
-    <Name of Project>::MyForm form;
+    <Name of Project>::MyForm form;            //replace with name of Project(ex: project 12)
     Application::Run(% form);
 
     return 0;
