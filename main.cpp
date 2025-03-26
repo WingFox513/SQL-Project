@@ -10,7 +10,7 @@ int main(array<String^>^ args)
     Application::SetCompatibleTextRenderingDefault(false);
 
    
-    Project22::MyForm form;
+    <Name of Project>::MyForm form;
     Application::Run(% form);
 
     return 0;
