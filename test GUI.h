@@ -45,16 +45,30 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 	private: System::Windows::Forms::Label^ LENTERBELOW;
 	private: System::Windows::Forms::TextBox^ QueryTB;
 	private: System::Windows::Forms::Button^ ExecuteBTN;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+
 	private: System::Windows::Forms::TabPage^ tabPage3;
 	private: System::Windows::Forms::TabPage^ tabPage4;
 	private: System::Windows::Forms::TabPage^ tabPage5;
 	private: System::Windows::Forms::TabPage^ tabPage6;
 
-	private: System::Windows::Forms::ComboBox^ comboBox2;
+
 	private: System::Windows::Forms::RadioButton^ radioButton3;
 	private: System::Windows::Forms::RadioButton^ radioButton2;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
+	private: System::Windows::Forms::RadioButton^ radioButton4;
+	private: System::Windows::Forms::RadioButton^ radioButton5;
+	private: System::Windows::Forms::RadioButton^ radioButton6;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::RadioButton^ radioButton8;
+	private: System::Windows::Forms::RadioButton^ radioButton7;
+	private: System::Windows::Forms::RadioButton^ radioButton11;
+	private: System::Windows::Forms::RadioButton^ radioButton10;
+	private: System::Windows::Forms::RadioButton^ radioButton9;
+	private: System::Windows::Forms::RadioButton^ radioButton12;
+	private: System::Windows::Forms::RadioButton^ radioButton13;
+
+
 
 
 
@@ -111,20 +125,33 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->LENTERBELOW = (gcnew System::Windows::Forms::Label());
 			this->ExecuteBTN = (gcnew System::Windows::Forms::Button());
 			this->QueryTB = (gcnew System::Windows::Forms::TextBox());
+			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->radioButton7 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton8 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton9 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton10 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton11 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton12 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton13 = (gcnew System::Windows::Forms::RadioButton());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			this->tabPage4->SuspendLayout();
+			this->tabPage5->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -147,7 +174,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage1->Controls->Add(this->radioButton3);
 			this->tabPage1->Controls->Add(this->radioButton2);
 			this->tabPage1->Controls->Add(this->radioButton1);
-			this->tabPage1->Controls->Add(this->comboBox2);
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Size = System::Drawing::Size(940, 343);
@@ -190,19 +216,12 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->radioButton1->UseVisualStyleBackColor = true;
 			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
 			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Add Customer", L"Delete Customer", L"Show Customers" });
-			this->comboBox2->Location = System::Drawing::Point(26, 23);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 24);
-			this->comboBox2->TabIndex = 1;
-			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox2_SelectedIndexChanged);
-			// 
 			// tabPage2
 			// 
-			this->tabPage2->Controls->Add(this->comboBox1);
+			this->tabPage2->Controls->Add(this->label2);
+			this->tabPage2->Controls->Add(this->radioButton4);
+			this->tabPage2->Controls->Add(this->radioButton5);
+			this->tabPage2->Controls->Add(this->radioButton6);
 			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Size = System::Drawing::Size(940, 343);
@@ -210,21 +229,10 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage2->Text = L"Cars";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Add Customer", L"Add Car", L"Add Service", L"Add Technician",
-					L"Make Apointment"
-			});
-			this->comboBox1->Location = System::Drawing::Point(30, 25);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
-			this->comboBox1->TabIndex = 0;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox1_SelectedIndexChanged);
-			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->radioButton8);
+			this->tabPage3->Controls->Add(this->radioButton7);
 			this->tabPage3->Location = System::Drawing::Point(4, 25);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Size = System::Drawing::Size(940, 343);
@@ -234,6 +242,9 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// 
 			// tabPage4
 			// 
+			this->tabPage4->Controls->Add(this->radioButton11);
+			this->tabPage4->Controls->Add(this->radioButton10);
+			this->tabPage4->Controls->Add(this->radioButton9);
 			this->tabPage4->Location = System::Drawing::Point(4, 25);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Size = System::Drawing::Size(940, 343);
@@ -243,6 +254,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// 
 			// tabPage5
 			// 
+			this->tabPage5->Controls->Add(this->radioButton13);
+			this->tabPage5->Controls->Add(this->radioButton12);
 			this->tabPage5->Location = System::Drawing::Point(4, 25);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Size = System::Drawing::Size(940, 343);
@@ -252,6 +265,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// 
 			// tabPage6
 			// 
+			this->tabPage6->Controls->Add(this->comboBox3);
 			this->tabPage6->Controls->Add(this->label1);
 			this->tabPage6->Controls->Add(this->LENTERBELOW);
 			this->tabPage6->Controls->Add(this->ExecuteBTN);
@@ -262,6 +276,14 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"SQL";
 			this->tabPage6->UseVisualStyleBackColor = true;
+			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Location = System::Drawing::Point(715, 111);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(121, 24);
+			this->comboBox3->TabIndex = 4;
 			// 
 			// label1
 			// 
@@ -308,6 +330,130 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->QueryTB->Size = System::Drawing::Size(423, 22);
 			this->QueryTB->TabIndex = 1;
 			// 
+			// radioButton4
+			// 
+			this->radioButton4->AutoSize = true;
+			this->radioButton4->Location = System::Drawing::Point(33, 32);
+			this->radioButton4->Name = L"radioButton4";
+			this->radioButton4->Size = System::Drawing::Size(77, 20);
+			this->radioButton4->TabIndex = 7;
+			this->radioButton4->TabStop = true;
+			this->radioButton4->Text = L"Add Car";
+			this->radioButton4->UseVisualStyleBackColor = true;
+			this->radioButton4->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton4_CheckedChanged);
+			// 
+			// radioButton5
+			// 
+			this->radioButton5->AutoSize = true;
+			this->radioButton5->Location = System::Drawing::Point(33, 58);
+			this->radioButton5->Name = L"radioButton5";
+			this->radioButton5->Size = System::Drawing::Size(92, 20);
+			this->radioButton5->TabIndex = 6;
+			this->radioButton5->TabStop = true;
+			this->radioButton5->Text = L"Delete Car";
+			this->radioButton5->UseVisualStyleBackColor = true;
+			this->radioButton5->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton5_CheckedChanged);
+			// 
+			// radioButton6
+			// 
+			this->radioButton6->AutoSize = true;
+			this->radioButton6->Location = System::Drawing::Point(33, 84);
+			this->radioButton6->Name = L"radioButton6";
+			this->radioButton6->Size = System::Drawing::Size(92, 20);
+			this->radioButton6->TabIndex = 5;
+			this->radioButton6->TabStop = true;
+			this->radioButton6->Text = L"Show Cars";
+			this->radioButton6->UseVisualStyleBackColor = true;
+			this->radioButton6->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton6_CheckedChanged);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(170, 32);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(266, 16);
+			this->label2->TabIndex = 8;
+			this->label2->Text = L"car needs make, model, license plate i think";
+			// 
+			// radioButton7
+			// 
+			this->radioButton7->AutoSize = true;
+			this->radioButton7->Location = System::Drawing::Point(56, 30);
+			this->radioButton7->Name = L"radioButton7";
+			this->radioButton7->Size = System::Drawing::Size(102, 20);
+			this->radioButton7->TabIndex = 0;
+			this->radioButton7->TabStop = true;
+			this->radioButton7->Text = L"Add Service";
+			this->radioButton7->UseVisualStyleBackColor = true;
+			this->radioButton7->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton7_CheckedChanged);
+			// 
+			// radioButton8
+			// 
+			this->radioButton8->AutoSize = true;
+			this->radioButton8->Location = System::Drawing::Point(56, 56);
+			this->radioButton8->Name = L"radioButton8";
+			this->radioButton8->Size = System::Drawing::Size(129, 20);
+			this->radioButton8->TabIndex = 1;
+			this->radioButton8->TabStop = true;
+			this->radioButton8->Text = L"Remove Service";
+			this->radioButton8->UseVisualStyleBackColor = true;
+			// 
+			// radioButton9
+			// 
+			this->radioButton9->AutoSize = true;
+			this->radioButton9->Location = System::Drawing::Point(53, 36);
+			this->radioButton9->Name = L"radioButton9";
+			this->radioButton9->Size = System::Drawing::Size(87, 20);
+			this->radioButton9->TabIndex = 0;
+			this->radioButton9->TabStop = true;
+			this->radioButton9->Text = L"Add Tech";
+			this->radioButton9->UseVisualStyleBackColor = true;
+			// 
+			// radioButton10
+			// 
+			this->radioButton10->AutoSize = true;
+			this->radioButton10->Location = System::Drawing::Point(53, 62);
+			this->radioButton10->Name = L"radioButton10";
+			this->radioButton10->Size = System::Drawing::Size(150, 20);
+			this->radioButton10->TabIndex = 1;
+			this->radioButton10->TabStop = true;
+			this->radioButton10->Text = L"Add Service to Tech";
+			this->radioButton10->UseVisualStyleBackColor = true;
+			// 
+			// radioButton11
+			// 
+			this->radioButton11->AutoSize = true;
+			this->radioButton11->Location = System::Drawing::Point(53, 89);
+			this->radioButton11->Name = L"radioButton11";
+			this->radioButton11->Size = System::Drawing::Size(114, 20);
+			this->radioButton11->TabIndex = 2;
+			this->radioButton11->TabStop = true;
+			this->radioButton11->Text = L"Remove Tech";
+			this->radioButton11->UseVisualStyleBackColor = true;
+			// 
+			// radioButton12
+			// 
+			this->radioButton12->AutoSize = true;
+			this->radioButton12->Location = System::Drawing::Point(53, 35);
+			this->radioButton12->Name = L"radioButton12";
+			this->radioButton12->Size = System::Drawing::Size(145, 20);
+			this->radioButton12->TabIndex = 0;
+			this->radioButton12->TabStop = true;
+			this->radioButton12->Text = L"Schedule Customer";
+			this->radioButton12->UseVisualStyleBackColor = true;
+			this->radioButton12->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton12_CheckedChanged);
+			// 
+			// radioButton13
+			// 
+			this->radioButton13->AutoSize = true;
+			this->radioButton13->Location = System::Drawing::Point(53, 62);
+			this->radioButton13->Name = L"radioButton13";
+			this->radioButton13->Size = System::Drawing::Size(121, 20);
+			this->radioButton13->TabIndex = 1;
+			this->radioButton13->TabStop = true;
+			this->radioButton13->Text = L"Show Schedule";
+			this->radioButton13->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -323,6 +469,13 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
+			this->tabPage2->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			this->tabPage4->ResumeLayout(false);
+			this->tabPage4->PerformLayout();
+			this->tabPage5->ResumeLayout(false);
+			this->tabPage5->PerformLayout();
 			this->tabPage6->ResumeLayout(false);
 			this->tabPage6->PerformLayout();
 			this->ResumeLayout(false);
@@ -419,6 +572,16 @@ private: System::Void btnSubmitCustomer_Click(System::Object^ sender, System::Ev
 }
 
 private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton7_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton12_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
