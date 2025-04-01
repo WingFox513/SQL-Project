@@ -113,6 +113,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->RemSerRBTN = (gcnew System::Windows::Forms::RadioButton());
 			this->AddSerRBTN = (gcnew System::Windows::Forms::RadioButton());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->RemTechRBTN = (gcnew System::Windows::Forms::RadioButton());
 			this->AddSerToTechRBTN = (gcnew System::Windows::Forms::RadioButton());
 			this->AddTechRBTN = (gcnew System::Windows::Forms::RadioButton());
@@ -124,7 +125,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->LENTERBELOW = (gcnew System::Windows::Forms::Label());
 			this->ExecuteBTN = (gcnew System::Windows::Forms::Button());
 			this->QueryTB = (gcnew System::Windows::Forms::TextBox());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -327,6 +327,16 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage4->Text = L"Technicians";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(40, 95);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(80, 17);
+			this->radioButton1->TabIndex = 3;
+			this->radioButton1->Text = L"Show Tech";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
 			// RemTechRBTN
 			// 
 			this->RemTechRBTN->AutoSize = true;
@@ -335,9 +345,9 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->RemTechRBTN->Name = L"RemTechRBTN";
 			this->RemTechRBTN->Size = System::Drawing::Size(93, 17);
 			this->RemTechRBTN->TabIndex = 2;
-			this->RemTechRBTN->TabStop = true;
 			this->RemTechRBTN->Text = L"Remove Tech";
 			this->RemTechRBTN->UseVisualStyleBackColor = true;
+			this->RemTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::RemTechRBTN_CheckedChanged);
 			// 
 			// AddSerToTechRBTN
 			// 
@@ -347,13 +357,14 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->AddSerToTechRBTN->Name = L"AddSerToTechRBTN";
 			this->AddSerToTechRBTN->Size = System::Drawing::Size(123, 17);
 			this->AddSerToTechRBTN->TabIndex = 1;
-			this->AddSerToTechRBTN->TabStop = true;
 			this->AddSerToTechRBTN->Text = L"Add Service to Tech";
 			this->AddSerToTechRBTN->UseVisualStyleBackColor = true;
+			this->AddSerToTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddSerToTechRBTN_CheckedChanged);
 			// 
 			// AddTechRBTN
 			// 
 			this->AddTechRBTN->AutoSize = true;
+			this->AddTechRBTN->Checked = true;
 			this->AddTechRBTN->Location = System::Drawing::Point(40, 29);
 			this->AddTechRBTN->Margin = System::Windows::Forms::Padding(2);
 			this->AddTechRBTN->Name = L"AddTechRBTN";
@@ -362,6 +373,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->AddTechRBTN->TabStop = true;
 			this->AddTechRBTN->Text = L"Add Tech";
 			this->AddTechRBTN->UseVisualStyleBackColor = true;
+			this->AddTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddTechRBTN_CheckedChanged);
 			// 
 			// tabPage5
 			// 
@@ -456,17 +468,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->QueryTB->Name = L"QueryTB";
 			this->QueryTB->Size = System::Drawing::Size(318, 20);
 			this->QueryTB->TabIndex = 1;
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(40, 95);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(80, 17);
-			this->radioButton1->TabIndex = 3;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Show Tech";
-			this->radioButton1->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
@@ -680,7 +681,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 						"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
 			}
-		
+
 		}
 	}
 	private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -906,7 +907,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 				String^ id = txtID->Text;
 				String^ Service = txtFirstName->Text;
 				String^ Cost = txtLastName->Text;
-				
+
 
 				// Build and execute the INSERT command into the MSSQL DB
 				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
@@ -938,6 +939,105 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 	}
 	private: System::Void radioButton12_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (SchedCusRBTN->Checked) {
+			Form^ inputForm = gcnew Form();
+			inputForm->Text = "Enter Details";
+			inputForm->Size = System::Drawing::Size(350, 300);
+			inputForm->StartPosition = FormStartPosition::CenterParent;
+
+			// ID label and textbox
+			Label^ lblID = gcnew Label();
+			lblID->Text = "ID:";
+			lblID->Location = System::Drawing::Point(10, 20);
+			lblID->AutoSize = true;
+			inputForm->Controls->Add(lblID);
+
+			TextBox^ txtID = gcnew TextBox();
+			txtID->Location = System::Drawing::Point(120, 20);
+			txtID->Width = 200;
+			inputForm->Controls->Add(txtID);
+
+			// First Name label and textbox
+			Label^ lblFirstName = gcnew Label();
+			lblFirstName->Text = "Customer Car ID:";
+			lblFirstName->Location = System::Drawing::Point(10, 60);
+			lblFirstName->AutoSize = true;
+			inputForm->Controls->Add(lblFirstName);
+
+			TextBox^ txtFirstName = gcnew TextBox();
+			txtFirstName->Location = System::Drawing::Point(120, 60);
+			txtFirstName->Width = 200;
+			inputForm->Controls->Add(txtFirstName);
+
+			// Last Name label and textbox
+			Label^ lblLastName = gcnew Label();
+			lblLastName->Text = "Date:";
+			lblLastName->Location = System::Drawing::Point(10, 100);
+			lblLastName->AutoSize = true;
+			inputForm->Controls->Add(lblLastName);
+
+			TextBox^ txtLastName = gcnew TextBox();
+			txtLastName->Location = System::Drawing::Point(120, 100);
+			txtLastName->Width = 200;
+			inputForm->Controls->Add(txtLastName);
+
+			// Phone Number label and textbox
+			Label^ lblPhone = gcnew Label();
+			lblPhone->Text = "Time:";
+			lblPhone->Location = System::Drawing::Point(10, 140);
+			lblPhone->AutoSize = true;
+			inputForm->Controls->Add(lblPhone);
+
+			TextBox^ txtPhone = gcnew TextBox();
+			txtPhone->Location = System::Drawing::Point(120, 140);
+			txtPhone->Width = 200;
+			inputForm->Controls->Add(txtPhone);
+
+			// OK button
+			Button^ btnOK = gcnew Button();
+			btnOK->Text = "OK";
+			btnOK->Location = System::Drawing::Point(120, 190);
+			btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+			inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+			inputForm->Controls->Add(btnOK);
+
+			// Show the form modally
+			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			{
+				// Retrieve user input
+				String^ id = txtID->Text;
+				String^ CCID = txtFirstName->Text;
+				String^ SD = txtLastName->Text;
+				String^ ST = txtPhone->Text;
+
+				// Build and execute the INSERT command into the MSSQL DB
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				try {
+					SqlConnection^ conn = gcnew SqlConnection(connString);
+					conn->Open();
+
+					String^ query = "INSERT INTO Cust_Car_ServiceDate_Time (Cust_Car_Date_ID, Cust_Car_ID, Service_Date, Service_Time) VALUES (@id, @CCID, @SD, @ST)";
+					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
+					cmd->Parameters->AddWithValue("@id", id);
+					cmd->Parameters->AddWithValue("@CCID", CCID);
+					cmd->Parameters->AddWithValue("@SD", SD);
+					cmd->Parameters->AddWithValue("@ST", ST);
+
+					int rowsAffected = cmd->ExecuteNonQuery();
+					MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
+						"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+					conn->Close();
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show("Error: " + ex->Message,
+						"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+
+		}
+
+
 	}
 	private: System::Void DelCusRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (DelCusRBTN->Checked) {
@@ -997,16 +1097,163 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 		}
 	}
-private: System::Void RemSerRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (RemSerRBTN->Checked) {
+	private: System::Void RemSerRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (RemSerRBTN->Checked) {
+			Form^ inputForm = gcnew Form();
+			inputForm->Text = "Enter Service Details";
+			inputForm->Size = System::Drawing::Size(350, 200);
+			inputForm->StartPosition = FormStartPosition::CenterParent;
+
+			// ID label and textbox
+			Label^ lblID = gcnew Label();
+			lblID->Text = "Service ID:";
+			lblID->Location = System::Drawing::Point(10, 20);
+			lblID->AutoSize = true;
+			inputForm->Controls->Add(lblID);
+
+			TextBox^ txtID = gcnew TextBox();
+			txtID->Location = System::Drawing::Point(120, 20);
+			txtID->Width = 200;
+			inputForm->Controls->Add(txtID);
+
+
+			// OK button
+			Button^ btnOK = gcnew Button();
+			btnOK->Text = "OK";
+			btnOK->Location = System::Drawing::Point(120, 100);
+			btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+			inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+			inputForm->Controls->Add(btnOK);
+
+			// Show the form modally
+			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			{
+				// Retrieve user input
+				String^ id = txtID->Text;
+
+				// Build and execute the INSERT command into the MSSQL DB
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				try {
+					SqlConnection^ conn = gcnew SqlConnection(connString);
+					conn->Open();
+
+					String^ query = "DELETE FROM Services WHERE Service_ID = @id";
+					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
+					cmd->Parameters->AddWithValue("@id", id);
+
+					int rowsAffected = cmd->ExecuteNonQuery();
+					MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
+						"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+					conn->Close();
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show("Error: " + ex->Message,
+						"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+
+		}
+
+	}
+	private: System::Void AddTechRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (AddTechRBTN->Checked) {
+			Form^ inputForm = gcnew Form();
+			inputForm->Text = "Enter Tech Details";
+			inputForm->Size = System::Drawing::Size(350, 300);
+			inputForm->StartPosition = FormStartPosition::CenterParent;
+
+			// ID label and textbox
+			Label^ lblID = gcnew Label();
+			lblID->Text = "Tech ID:";
+			lblID->Location = System::Drawing::Point(10, 20);
+			lblID->AutoSize = true;
+			inputForm->Controls->Add(lblID);
+
+			TextBox^ txtID = gcnew TextBox();
+			txtID->Location = System::Drawing::Point(120, 20);
+			txtID->Width = 200;
+			inputForm->Controls->Add(txtID);
+
+			// First Name label and textbox
+			Label^ lblFirstName = gcnew Label();
+			lblFirstName->Text = "First Name:";
+			lblFirstName->Location = System::Drawing::Point(10, 60);
+			lblFirstName->AutoSize = true;
+			inputForm->Controls->Add(lblFirstName);
+
+			TextBox^ txtFirstName = gcnew TextBox();
+			txtFirstName->Location = System::Drawing::Point(120, 60);
+			txtFirstName->Width = 200;
+			inputForm->Controls->Add(txtFirstName);
+
+			// Last Name label and textbox
+			Label^ lblLastName = gcnew Label();
+			lblLastName->Text = "Last Name:";
+			lblLastName->Location = System::Drawing::Point(10, 100);
+			lblLastName->AutoSize = true;
+			inputForm->Controls->Add(lblLastName);
+
+			TextBox^ txtLastName = gcnew TextBox();
+			txtLastName->Location = System::Drawing::Point(120, 100);
+			txtLastName->Width = 200;
+			inputForm->Controls->Add(txtLastName);
+
+			// OK button
+			Button^ btnOK = gcnew Button();
+			btnOK->Text = "OK";
+			btnOK->Location = System::Drawing::Point(120, 190);
+			btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+			inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+			inputForm->Controls->Add(btnOK);
+
+			// Show the form modally
+			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			{
+				// Retrieve user input
+				String^ id = txtID->Text;
+				String^ FN = txtFirstName->Text;
+				String^ LN = txtLastName->Text;
+
+
+				// Build and execute the INSERT command into the MSSQL DB
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				try {
+					SqlConnection^ conn = gcnew SqlConnection(connString);
+					conn->Open();
+
+					String^ query = "INSERT INTO Technician (Tech_ID, Tech_FN, Tech_LN) VALUES (@id, @FN, @LN)";
+					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
+					cmd->Parameters->AddWithValue("@id", id);
+					cmd->Parameters->AddWithValue("@FN", FN);
+					cmd->Parameters->AddWithValue("@LN", LN);
+
+					int rowsAffected = cmd->ExecuteNonQuery();
+					MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
+						"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+					conn->Close();
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show("Error: " + ex->Message,
+						"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+
+		}
+
+
+	}
+private: System::Void RemTechRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (RemTechRBTN->Checked) {
 		Form^ inputForm = gcnew Form();
-		inputForm->Text = "Enter Service Details";
+		inputForm->Text = "Enter Tech Details";
 		inputForm->Size = System::Drawing::Size(350, 200);
 		inputForm->StartPosition = FormStartPosition::CenterParent;
 
 		// ID label and textbox
 		Label^ lblID = gcnew Label();
-		lblID->Text = "Service ID:";
+		lblID->Text = "Tech ID:";
 		lblID->Location = System::Drawing::Point(10, 20);
 		lblID->AutoSize = true;
 		inputForm->Controls->Add(lblID);
@@ -1037,9 +1284,97 @@ private: System::Void RemSerRBTN_CheckedChanged(System::Object^ sender, System::
 				SqlConnection^ conn = gcnew SqlConnection(connString);
 				conn->Open();
 
-				String^ query = "DELETE FROM Services WHERE Service_ID = @id";
+				String^ query = "DELETE FROM Technician WHERE Tech_ID = @id";
 				SqlCommand^ cmd = gcnew SqlCommand(query, conn);
 				cmd->Parameters->AddWithValue("@id", id);
+
+				int rowsAffected = cmd->ExecuteNonQuery();
+				MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
+					"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+				conn->Close();
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show("Error: " + ex->Message,
+					"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+
+	}
+
+
+}
+private: System::Void AddSerToTechRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (AddSerToTechRBTN->Checked) {
+		Form^ inputForm = gcnew Form();
+		inputForm->Text = "Enter Tech Service Details";
+		inputForm->Size = System::Drawing::Size(350, 300);
+		inputForm->StartPosition = FormStartPosition::CenterParent;
+
+		// ID label and textbox
+		Label^ lblID = gcnew Label();
+		lblID->Text = "Tech Service ID:";
+		lblID->Location = System::Drawing::Point(10, 20);
+		lblID->AutoSize = true;
+		inputForm->Controls->Add(lblID);
+
+		TextBox^ txtID = gcnew TextBox();
+		txtID->Location = System::Drawing::Point(120, 20);
+		txtID->Width = 200;
+		inputForm->Controls->Add(txtID);
+
+		// First Name label and textbox
+		Label^ lblFirstName = gcnew Label();
+		lblFirstName->Text = "Tech ID:";
+		lblFirstName->Location = System::Drawing::Point(10, 60);
+		lblFirstName->AutoSize = true;
+		inputForm->Controls->Add(lblFirstName);
+
+		TextBox^ txtFirstName = gcnew TextBox();
+		txtFirstName->Location = System::Drawing::Point(120, 60);
+		txtFirstName->Width = 200;
+		inputForm->Controls->Add(txtFirstName);
+
+		// Last Name label and textbox
+		Label^ lblLastName = gcnew Label();
+		lblLastName->Text = "Service ID:";
+		lblLastName->Location = System::Drawing::Point(10, 100);
+		lblLastName->AutoSize = true;
+		inputForm->Controls->Add(lblLastName);
+
+		TextBox^ txtLastName = gcnew TextBox();
+		txtLastName->Location = System::Drawing::Point(120, 100);
+		txtLastName->Width = 200;
+		inputForm->Controls->Add(txtLastName);
+
+		// OK button
+		Button^ btnOK = gcnew Button();
+		btnOK->Text = "OK";
+		btnOK->Location = System::Drawing::Point(120, 190);
+		btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+		inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+		inputForm->Controls->Add(btnOK);
+
+		// Show the form modally
+		if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			// Retrieve user input
+			String^ id = txtID->Text;
+			String^ TID = txtFirstName->Text;
+			String^ SID = txtLastName->Text;
+
+
+			// Build and execute the INSERT command into the MSSQL DB
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			try {
+				SqlConnection^ conn = gcnew SqlConnection(connString);
+				conn->Open();
+
+				String^ query = "INSERT INTO Tech_To_Service (Tech_Service_ID, Tech_ID, Service_ID) VALUES (@id, @TID, @SID)";
+				SqlCommand^ cmd = gcnew SqlCommand(query, conn);
+				cmd->Parameters->AddWithValue("@id", id);
+				cmd->Parameters->AddWithValue("@TID", TID);
+				cmd->Parameters->AddWithValue("@SID", SID);
 
 				int rowsAffected = cmd->ExecuteNonQuery();
 				MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
