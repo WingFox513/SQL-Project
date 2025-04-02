@@ -82,6 +82,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 	private: System::Windows::Forms::RadioButton^ DelCusRBTN;
 	private: System::Windows::Forms::RadioButton^ ShowSerRBTN;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+
 
 
 
@@ -129,6 +131,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->LENTERBELOW = (gcnew System::Windows::Forms::Label());
 			this->ExecuteBTN = (gcnew System::Windows::Forms::Button());
 			this->QueryTB = (gcnew System::Windows::Forms::TextBox());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -382,6 +385,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// 
 			// tabPage5
 			// 
+			this->tabPage5->Controls->Add(this->radioButton2);
 			this->tabPage5->Controls->Add(this->ShowSchedRBTN);
 			this->tabPage5->Controls->Add(this->SchedCusRBTN);
 			this->tabPage5->Location = System::Drawing::Point(4, 25);
@@ -395,12 +399,11 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// ShowSchedRBTN
 			// 
 			this->ShowSchedRBTN->AutoSize = true;
-			this->ShowSchedRBTN->Location = System::Drawing::Point(53, 62);
+			this->ShowSchedRBTN->Location = System::Drawing::Point(53, 84);
 			this->ShowSchedRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->ShowSchedRBTN->Name = L"ShowSchedRBTN";
 			this->ShowSchedRBTN->Size = System::Drawing::Size(121, 20);
 			this->ShowSchedRBTN->TabIndex = 1;
-			this->ShowSchedRBTN->TabStop = true;
 			this->ShowSchedRBTN->Text = L"Show Schedule";
 			this->ShowSchedRBTN->UseVisualStyleBackColor = true;
 			// 
@@ -475,6 +478,18 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->QueryTB->Name = L"QueryTB";
 			this->QueryTB->Size = System::Drawing::Size(423, 22);
 			this->QueryTB->TabIndex = 1;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(53, 59);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(88, 20);
+			this->radioButton2->TabIndex = 2;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"Pick Tech";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton2_CheckedChanged);
 			// 
 			// MyForm
 			// 
@@ -1008,7 +1023,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// Phone Number label and textbox
 			Label^ lblPhone = gcnew Label();
-			lblPhone->Text = "Pick Tech:";
+			lblPhone->Text = "Pick Service:";
 			lblPhone->Location = System::Drawing::Point(10, 140);
 			lblPhone->AutoSize = true;
 			inputForm->Controls->Add(lblPhone);
@@ -1402,5 +1417,91 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 	}
 private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
+private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (radioButton2->Checked) {
+			Form^ inputForm = gcnew Form();
+			inputForm->Text = "Enter Tech Details";
+			inputForm->Size = System::Drawing::Size(350, 300);
+			inputForm->StartPosition = FormStartPosition::CenterParent;
+
+			// ID label and textbox
+			Label^ lblID = gcnew Label();
+			lblID->Text = "Schedule ID:";
+			lblID->Location = System::Drawing::Point(10, 20);
+			lblID->AutoSize = true;
+			inputForm->Controls->Add(lblID);
+
+			TextBox^ txtID = gcnew TextBox();
+			txtID->Location = System::Drawing::Point(120, 20);
+			txtID->Width = 200;
+			inputForm->Controls->Add(txtID);
+
+
+
+
+			// ID label and textbox
+			Label^ tID = gcnew Label();
+			tID->Text = "Qualified Tech:";
+			tID->Location = System::Drawing::Point(10, 60);
+			tID->AutoSize = true;
+			inputForm->Controls->Add(tID);
+
+			ComboBox^ comboBox5 = gcnew ComboBox();
+			comboBox5->DropDownStyle = ComboBoxStyle::DropDownList;
+			comboBox5->FormattingEnabled = true;
+			comboBox5->Items->AddRange(gcnew cli::array< System::Object^ >(2) { L"qualified tech1", L"qualified tech2" });
+			comboBox5->Location = System::Drawing::Point(120, 60);
+			comboBox5->Name = L"comboBox5";
+			comboBox5->Size = System::Drawing::Size(121, 24);
+			comboBox5->TabIndex = 9;
+			inputForm->Controls->Add(comboBox5);
+
+
+			// OK button
+			Button^ btnOK = gcnew Button();
+			btnOK->Text = "OK";
+			btnOK->Location = System::Drawing::Point(120, 190);
+			btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+			inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+			inputForm->Controls->Add(btnOK);
+
+			// Show the form modally
+			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			{
+				// Retrieve user input
+				String^ FN = txtID->Text;
+				String^ LN = comboBox5->Text;
+
+
+				// Build and execute the INSERT command into the MSSQL DB
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				try {
+					SqlConnection^ conn = gcnew SqlConnection(connString);
+					conn->Open();
+
+					String^ query = "INSERT INTO Technician (Tech_ID, Tech_FN, Tech_LN) VALUES (@id, @FN, @LN)";
+					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
+					cmd->Parameters->AddWithValue("@FN", FN);
+					cmd->Parameters->AddWithValue("@LN", LN);
+
+					int rowsAffected = cmd->ExecuteNonQuery();
+					MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
+						"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+					conn->Close();
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show("Error: " + ex->Message,
+						"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+
+	}
+
+		radioButton2->Checked = false;
+}
+
 };
 }
+
