@@ -84,6 +84,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 
 
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -368,7 +370,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			// AddTechRBTN
 			// 
 			this->AddTechRBTN->AutoSize = true;
-			this->AddTechRBTN->Checked = true;
 			this->AddTechRBTN->Location = System::Drawing::Point(53, 36);
 			this->AddTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->AddTechRBTN->Name = L"AddTechRBTN";
@@ -593,7 +594,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// ID label and textbox
 			Label^ lblID = gcnew Label();
-			lblID->Text = "ID:";
+			lblID->Text = "First Name:";
 			lblID->Location = System::Drawing::Point(10, 20);
 			lblID->AutoSize = true;
 			inputForm->Controls->Add(lblID);
@@ -605,7 +606,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// First Name label and textbox
 			Label^ lblFirstName = gcnew Label();
-			lblFirstName->Text = "First Name:";
+			lblFirstName->Text = "Last Name:";
 			lblFirstName->Location = System::Drawing::Point(10, 60);
 			lblFirstName->AutoSize = true;
 			inputForm->Controls->Add(lblFirstName);
@@ -617,7 +618,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// Last Name label and textbox
 			Label^ lblLastName = gcnew Label();
-			lblLastName->Text = "Last Name:";
+			lblLastName->Text = "Phone Number::";
 			lblLastName->Location = System::Drawing::Point(10, 100);
 			lblLastName->AutoSize = true;
 			inputForm->Controls->Add(lblLastName);
@@ -627,17 +628,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			txtLastName->Width = 200;
 			inputForm->Controls->Add(txtLastName);
 
-			// Phone Number label and textbox
-			Label^ lblPhone = gcnew Label();
-			lblPhone->Text = "Phone Number:";
-			lblPhone->Location = System::Drawing::Point(10, 140);
-			lblPhone->AutoSize = true;
-			inputForm->Controls->Add(lblPhone);
 
-			TextBox^ txtPhone = gcnew TextBox();
-			txtPhone->Location = System::Drawing::Point(120, 140);
-			txtPhone->Width = 200;
-			inputForm->Controls->Add(txtPhone);
 
 			// OK button
 			Button^ btnOK = gcnew Button();
@@ -651,10 +642,9 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
 				// Retrieve user input
-				String^ id = txtID->Text;
-				String^ firstName = txtFirstName->Text;
-				String^ lastName = txtLastName->Text;
-				String^ phone = txtPhone->Text;
+				String^ firstName = txtID->Text;
+				String^ lastName = txtFirstName->Text;
+				String^ phone = txtLastName->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
 				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
@@ -664,7 +654,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 					String^ query = "INSERT INTO Customer (Cust_ID, Cust_FN, Cust_LN, Phone_#) VALUES (@id, @firstName, @lastName, @phone)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-					cmd->Parameters->AddWithValue("@id", id);
 					cmd->Parameters->AddWithValue("@firstName", firstName);
 					cmd->Parameters->AddWithValue("@lastName", lastName);
 					cmd->Parameters->AddWithValue("@phone", phone);
@@ -767,7 +756,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			ComboBox^ comboBox3 = gcnew ComboBox();
 			comboBox3->DropDownStyle = ComboBoxStyle::DropDownList;
 			comboBox3->FormattingEnabled = true;
-			comboBox3->Items->AddRange(gcnew cli::array< System::Object^ >(3) { L"Cust1info", L"C2info", L"C3info" });
+			comboBox3->Items->AddRange(gcnew cli::array< System::Object^ >(3) { L"Cust1info", L"C2info", L"C3" });
 			comboBox3->Location = System::Drawing::Point(120, 20);
 			comboBox3->Name = L"comboBox3";
 			comboBox3->Size = System::Drawing::Size(121, 24);
@@ -888,7 +877,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// ID label and textbox
 			Label^ lblID = gcnew Label();
-			lblID->Text = "Service ID:";
+			lblID->Text = "Service:";
 			lblID->Location = System::Drawing::Point(10, 20);
 			lblID->AutoSize = true;
 			inputForm->Controls->Add(lblID);
@@ -900,7 +889,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// First Name label and textbox
 			Label^ lblFirstName = gcnew Label();
-			lblFirstName->Text = "Service:";
+			lblFirstName->Text = "Cost:";
 			lblFirstName->Location = System::Drawing::Point(10, 60);
 			lblFirstName->AutoSize = true;
 			inputForm->Controls->Add(lblFirstName);
@@ -910,17 +899,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			txtFirstName->Width = 200;
 			inputForm->Controls->Add(txtFirstName);
 
-			// Last Name label and textbox
-			Label^ lblLastName = gcnew Label();
-			lblLastName->Text = "Cost:";
-			lblLastName->Location = System::Drawing::Point(10, 100);
-			lblLastName->AutoSize = true;
-			inputForm->Controls->Add(lblLastName);
-
-			TextBox^ txtLastName = gcnew TextBox();
-			txtLastName->Location = System::Drawing::Point(120, 100);
-			txtLastName->Width = 200;
-			inputForm->Controls->Add(txtLastName);
 
 			// OK button
 			Button^ btnOK = gcnew Button();
@@ -934,9 +912,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
 				// Retrieve user input
-				String^ id = txtID->Text;
-				String^ Service = txtFirstName->Text;
-				String^ Cost = txtLastName->Text;
+				String^ Service = txtID->Text;
+				String^ Cost = txtFirstName->Text;
 
 
 				// Build and execute the INSERT command into the MSSQL DB
@@ -947,7 +924,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 					String^ query = "INSERT INTO Services (Service_ID, Service, Cost) VALUES (@id, @Service, @Cost)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-					cmd->Parameters->AddWithValue("@id", id);
 					cmd->Parameters->AddWithValue("@Service", Service);
 					cmd->Parameters->AddWithValue("@Cost", Cost);
 
@@ -978,7 +954,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// ID label and textbox
 			Label^ lblID = gcnew Label();
-			lblID->Text = "ID:";
+			lblID->Text = "Customer ID:";
 			lblID->Location = System::Drawing::Point(10, 20);
 			lblID->AutoSize = true;
 			inputForm->Controls->Add(lblID);
@@ -990,31 +966,49 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// First Name label and textbox
 			Label^ lblFirstName = gcnew Label();
-			lblFirstName->Text = "Customer Car ID:";
+			lblFirstName->Text = "License Plate:";
 			lblFirstName->Location = System::Drawing::Point(10, 60);
 			lblFirstName->AutoSize = true;
 			inputForm->Controls->Add(lblFirstName);
 
-			TextBox^ txtFirstName = gcnew TextBox();
-			txtFirstName->Location = System::Drawing::Point(120, 60);
-			txtFirstName->Width = 200;
-			inputForm->Controls->Add(txtFirstName);
+			ComboBox^ comboBox4 = gcnew ComboBox();
+			comboBox4->DropDownStyle = ComboBoxStyle::DropDownList;
+			comboBox4->FormattingEnabled = true;
+			comboBox4->Items->AddRange(gcnew cli::array< System::Object^ >(3) { L"Cust1info", L"C2info", L"C3" });
+			comboBox4->Location = System::Drawing::Point(120, 60);
+			comboBox4->Name = L"comboBox3";
+			comboBox4->Size = System::Drawing::Size(121, 24);
+			comboBox4->TabIndex = 9;
+
+			// Add the ComboBox to the popout form (inputForm)
+			inputForm->Controls->Add(comboBox4);
+			String^ txtFirstName = comboBox4->Text; // or comboBox1->SelectedItem->ToString();
+
 
 			// Last Name label and textbox
 			Label^ lblLastName = gcnew Label();
-			lblLastName->Text = "Date:";
+			lblLastName->Text = "Date and Time:";
 			lblLastName->Location = System::Drawing::Point(10, 100);
 			lblLastName->AutoSize = true;
 			inputForm->Controls->Add(lblLastName);
 
-			TextBox^ txtLastName = gcnew TextBox();
-			txtLastName->Location = System::Drawing::Point(120, 100);
-			txtLastName->Width = 200;
-			inputForm->Controls->Add(txtLastName);
+
+			// dateTimePicker1
+			// 
+			DateTimePicker^ dateTimePicker1 = gcnew DateTimePicker();
+			dateTimePicker1->Format = DateTimePickerFormat::Custom; // Enable custom format
+			dateTimePicker1->CustomFormat = "MM/dd/yyyy hh:mm tt"; // Format: Date + 12-hour time with AM/PM
+			dateTimePicker1->ShowUpDown = true; // Removes the calendar dropdown, allows manual adjustment
+			dateTimePicker1->Location = System::Drawing::Point(120, 100);
+			dateTimePicker1->Name = L"dateTimePicker1";
+			dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			dateTimePicker1->TabIndex = 6;
+			dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &MyForm::dateTimePicker1_ValueChanged);
+			inputForm->Controls->Add(dateTimePicker1);
 
 			// Phone Number label and textbox
 			Label^ lblPhone = gcnew Label();
-			lblPhone->Text = "Time:";
+			lblPhone->Text = "Pick Tech:";
 			lblPhone->Location = System::Drawing::Point(10, 140);
 			lblPhone->AutoSize = true;
 			inputForm->Controls->Add(lblPhone);
@@ -1037,8 +1031,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			{
 				// Retrieve user input
 				String^ id = txtID->Text;
-				String^ CCID = txtFirstName->Text;
-				String^ SD = txtLastName->Text;
+				String^ CCID = txtFirstName;
+				//String^ SD = txtLastName->Text; IMPORTANT JUST LAZY RN
 				String^ ST = txtPhone->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
@@ -1051,7 +1045,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
 					cmd->Parameters->AddWithValue("@id", id);
 					cmd->Parameters->AddWithValue("@CCID", CCID);
-					cmd->Parameters->AddWithValue("@SD", SD);
+					//cmd->Parameters->AddWithValue("@SD", SD); ALSO IMPORTANT JUST LAZY RN
 					cmd->Parameters->AddWithValue("@ST", ST);
 
 					int rowsAffected = cmd->ExecuteNonQuery();
@@ -1200,7 +1194,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// ID label and textbox
 			Label^ lblID = gcnew Label();
-			lblID->Text = "Tech ID:";
+			lblID->Text = "First Name:";
 			lblID->Location = System::Drawing::Point(10, 20);
 			lblID->AutoSize = true;
 			inputForm->Controls->Add(lblID);
@@ -1212,7 +1206,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// First Name label and textbox
 			Label^ lblFirstName = gcnew Label();
-			lblFirstName->Text = "First Name:";
+			lblFirstName->Text = "Last Name:";
 			lblFirstName->Location = System::Drawing::Point(10, 60);
 			lblFirstName->AutoSize = true;
 			inputForm->Controls->Add(lblFirstName);
@@ -1222,17 +1216,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			txtFirstName->Width = 200;
 			inputForm->Controls->Add(txtFirstName);
 
-			// Last Name label and textbox
-			Label^ lblLastName = gcnew Label();
-			lblLastName->Text = "Last Name:";
-			lblLastName->Location = System::Drawing::Point(10, 100);
-			lblLastName->AutoSize = true;
-			inputForm->Controls->Add(lblLastName);
-
-			TextBox^ txtLastName = gcnew TextBox();
-			txtLastName->Location = System::Drawing::Point(120, 100);
-			txtLastName->Width = 200;
-			inputForm->Controls->Add(txtLastName);
 
 			// OK button
 			Button^ btnOK = gcnew Button();
@@ -1246,9 +1229,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
 				// Retrieve user input
-				String^ id = txtID->Text;
-				String^ FN = txtFirstName->Text;
-				String^ LN = txtLastName->Text;
+				String^ FN = txtID->Text;
+				String^ LN = txtFirstName->Text;
 
 
 				// Build and execute the INSERT command into the MSSQL DB
@@ -1259,7 +1241,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 					String^ query = "INSERT INTO Technician (Tech_ID, Tech_FN, Tech_LN) VALUES (@id, @FN, @LN)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-					cmd->Parameters->AddWithValue("@id", id);
 					cmd->Parameters->AddWithValue("@FN", FN);
 					cmd->Parameters->AddWithValue("@LN", LN);
 
@@ -1350,7 +1331,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// ID label and textbox
 			Label^ lblID = gcnew Label();
-			lblID->Text = "Tech Service ID:";
+			lblID->Text = "Tech ID:";
 			lblID->Location = System::Drawing::Point(10, 20);
 			lblID->AutoSize = true;
 			inputForm->Controls->Add(lblID);
@@ -1362,7 +1343,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 			// First Name label and textbox
 			Label^ lblFirstName = gcnew Label();
-			lblFirstName->Text = "Tech ID:";
+			lblFirstName->Text = "Service ID:";
 			lblFirstName->Location = System::Drawing::Point(10, 60);
 			lblFirstName->AutoSize = true;
 			inputForm->Controls->Add(lblFirstName);
@@ -1372,17 +1353,6 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			txtFirstName->Width = 200;
 			inputForm->Controls->Add(txtFirstName);
 
-			// Last Name label and textbox
-			Label^ lblLastName = gcnew Label();
-			lblLastName->Text = "Service ID:";
-			lblLastName->Location = System::Drawing::Point(10, 100);
-			lblLastName->AutoSize = true;
-			inputForm->Controls->Add(lblLastName);
-
-			TextBox^ txtLastName = gcnew TextBox();
-			txtLastName->Location = System::Drawing::Point(120, 100);
-			txtLastName->Width = 200;
-			inputForm->Controls->Add(txtLastName);
 
 			// OK button
 			Button^ btnOK = gcnew Button();
@@ -1396,9 +1366,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
 				// Retrieve user input
-				String^ id = txtID->Text;
-				String^ TID = txtFirstName->Text;
-				String^ SID = txtLastName->Text;
+				String^ TID = txtID->Text;
+				String^ SID = txtFirstName->Text;
 
 
 				// Build and execute the INSERT command into the MSSQL DB
@@ -1409,9 +1378,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 					String^ query = "INSERT INTO Tech_To_Service (Tech_Service_ID, Tech_ID, Service_ID) VALUES (@id, @TID, @SID)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-					cmd->Parameters->AddWithValue("@id", id);
-					cmd->Parameters->AddWithValue("@TID", TID);
-					cmd->Parameters->AddWithValue("@SID", SID);
+					cmd->Parameters->AddWithValue("@id", TID);
+					cmd->Parameters->AddWithValue("@TID", SID);
 
 					int rowsAffected = cmd->ExecuteNonQuery();
 					MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
@@ -1432,5 +1400,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 	private: System::Void comboBox1_SelectedIndexChanged_2(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
