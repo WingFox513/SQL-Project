@@ -1,6 +1,6 @@
 #pragma once
 
-namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
+namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -9,6 +9,8 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
+	//using namespace System::Windows::Forms::DataVisualization::Charting;
+
 
 	/// <summary>
 	/// Summary for MyForm
@@ -38,51 +40,118 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 
 
-	private: System::Windows::Forms::TabControl^ tabControl1;
-	private: System::Windows::Forms::TabPage^ tabPage1;
-	private: System::Windows::Forms::TabPage^ tabPage2;
+
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::TabPage^ tabPage8;
+
+
+	private: System::Windows::Forms::TabPage^ tabPage6;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ LENTERBELOW;
-	private: System::Windows::Forms::TextBox^ QueryTB;
 	private: System::Windows::Forms::Button^ ExecuteBTN;
-
-	private: System::Windows::Forms::TabPage^ tabPage3;
-	private: System::Windows::Forms::TabPage^ tabPage4;
+	private: System::Windows::Forms::TextBox^ QueryTB;
 	private: System::Windows::Forms::TabPage^ tabPage5;
-	private: System::Windows::Forms::TabPage^ tabPage6;
-	private: System::Windows::Forms::RadioButton^ ShowCusRBTN;
-
-
-
-	private: System::Windows::Forms::RadioButton^ AddCustRBTN;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ ShowSchedRBTN;
+	private: System::Windows::Forms::RadioButton^ SchedCusRBTN;
+	private: System::Windows::Forms::TabPage^ tabPage4;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::RadioButton^ RemTechRBTN;
+	private: System::Windows::Forms::RadioButton^ AddSerToTechRBTN;
+	private: System::Windows::Forms::RadioButton^ AddTechRBTN;
+	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::RadioButton^ ShowSerRBTN;
+	private: System::Windows::Forms::RadioButton^ RemSerRBTN;
+	private: System::Windows::Forms::RadioButton^ AddSerRBTN;
+	private: System::Windows::Forms::TabPage^ tabPage2;
+	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::RadioButton^ AddCarRBTN;
 	private: System::Windows::Forms::RadioButton^ DelCarRBTN;
 	private: System::Windows::Forms::RadioButton^ ShowCarRBTN;
-
-
-
-
-
-
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::RadioButton^ RemSerRBTN;
-
-	private: System::Windows::Forms::RadioButton^ AddSerRBTN;
-	private: System::Windows::Forms::RadioButton^ RemTechRBTN;
-
-
-	private: System::Windows::Forms::RadioButton^ AddSerToTechRBTN;
-
-	private: System::Windows::Forms::RadioButton^ AddTechRBTN;
-	private: System::Windows::Forms::RadioButton^ SchedCusRBTN;
-	private: System::Windows::Forms::RadioButton^ ShowSchedRBTN;
-
-
-
+	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::RadioButton^ DelCusRBTN;
-	private: System::Windows::Forms::RadioButton^ ShowSerRBTN;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ ShowCusRBTN;
+	private: System::Windows::Forms::RadioButton^ AddCustRBTN;
+	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::TabPage^ tabPage7;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker3;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::TabPage^ tabPage9;
+
+
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::ComboBox^ comboBox4;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker5;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker4;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::TabPage^ tabPage10;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::Label^ label13;
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker7;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker6;
+	private: System::Windows::Forms::TabPage^ tabPage11;
+	private: System::Windows::Forms::ComboBox^ comboBox5;
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::TabPage^ tabPage12;
+	private: System::Windows::Forms::Button^ button6;
+	private: System::Windows::Forms::Button^ button7;
+	private: System::Windows::Forms::Label^ label16;
+	private: System::Windows::Forms::Label^ label15;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker9;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker8;
+	private: System::Windows::Forms::TabPage^ tabPage13;
+	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker11;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker10;
+private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+private: System::Windows::Forms::Label^ label19;
+private: System::Windows::Forms::Label^ label20;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,109 +173,444 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->DelCusRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->ShowCusRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->AddCustRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->AddCarRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->DelCarRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->ShowCarRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->ShowSerRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->RemSerRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->AddSerRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->RemTechRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->AddSerToTechRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->AddTechRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
-			this->ShowSchedRBTN = (gcnew System::Windows::Forms::RadioButton());
-			this->SchedCusRBTN = (gcnew System::Windows::Forms::RadioButton());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::DataPoint^ dataPoint7 = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint(25,
+				25));
+			System::Windows::Forms::DataVisualization::Charting::DataPoint^ dataPoint8 = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint(75,
+				75));
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker3 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->LENTERBELOW = (gcnew System::Windows::Forms::Label());
 			this->ExecuteBTN = (gcnew System::Windows::Forms::Button());
 			this->QueryTB = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->tabControl1->SuspendLayout();
-			this->tabPage1->SuspendLayout();
-			this->tabPage2->SuspendLayout();
-			this->tabPage3->SuspendLayout();
-			this->tabPage4->SuspendLayout();
-			this->tabPage5->SuspendLayout();
+			this->ShowSchedRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->SchedCusRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->RemTechRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->AddSerToTechRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->AddTechRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->ShowSerRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->RemSerRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->AddSerRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->AddCarRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->DelCarRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->ShowCarRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->DelCusRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->ShowCusRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->AddCustRBTN = (gcnew System::Windows::Forms::RadioButton());
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker5 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker4 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker7 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker6 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->tabPage11 = (gcnew System::Windows::Forms::TabPage());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->comboBox5 = (gcnew System::Windows::Forms::ComboBox());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker9 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker8 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->tabPage13 = (gcnew System::Windows::Forms::TabPage());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker11 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker10 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->tabPage8->SuspendLayout();
 			this->tabPage6->SuspendLayout();
+			this->tabPage5->SuspendLayout();
+			this->tabPage4->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			this->tabPage2->SuspendLayout();
+			this->tabPage1->SuspendLayout();
+			this->tabControl1->SuspendLayout();
+			this->tabPage7->SuspendLayout();
+			this->tabPage9->SuspendLayout();
+			this->tabPage10->SuspendLayout();
+			this->tabPage11->SuspendLayout();
+			this->tabPage12->SuspendLayout();
+			this->tabPage13->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// tabControl1
+			// comboBox1
 			// 
-			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Controls->Add(this->tabPage5);
-			this->tabControl1->Controls->Add(this->tabPage6);
-			this->tabControl1->Location = System::Drawing::Point(13, 2);
-			this->tabControl1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(948, 372);
-			this->tabControl1->TabIndex = 0;
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(15, 33);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 24);
+			this->comboBox1->TabIndex = 0;
 			// 
-			// tabPage1
+			// label3
 			// 
-			this->tabPage1->Controls->Add(this->DelCusRBTN);
-			this->tabPage1->Controls->Add(this->ShowCusRBTN);
-			this->tabPage1->Controls->Add(this->AddCustRBTN);
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Size = System::Drawing::Size(940, 343);
-			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"Customer";
-			this->tabPage1->UseVisualStyleBackColor = true;
-			this->tabPage1->Click += gcnew System::EventHandler(this, &MyForm::tabPage1_Click);
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(15, 14);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(35, 13);
+			this->label3->TabIndex = 1;
+			this->label3->Text = L"label3";
+			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
-			// DelCusRBTN
+			// tabPage8
 			// 
-			this->DelCusRBTN->AutoSize = true;
-			this->DelCusRBTN->Location = System::Drawing::Point(35, 68);
-			this->DelCusRBTN->Margin = System::Windows::Forms::Padding(4);
-			this->DelCusRBTN->Name = L"DelCusRBTN";
-			this->DelCusRBTN->Size = System::Drawing::Size(135, 20);
-			this->DelCusRBTN->TabIndex = 5;
-			this->DelCusRBTN->TabStop = true;
-			this->DelCusRBTN->Text = L"Delete Customers";
-			this->DelCusRBTN->UseVisualStyleBackColor = true;
-			this->DelCusRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::DelCusRBTN_CheckedChanged);
+			this->tabPage8->Controls->Add(this->label9);
+			this->tabPage8->Controls->Add(this->comboBox4);
+			this->tabPage8->Controls->Add(this->button2);
+			this->tabPage8->Controls->Add(this->label6);
+			this->tabPage8->Controls->Add(this->label5);
+			this->tabPage8->Controls->Add(this->dateTimePicker3);
+			this->tabPage8->Controls->Add(this->dateTimePicker2);
+			this->tabPage8->Location = System::Drawing::Point(4, 25);
+			this->tabPage8->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage8->Name = L"tabPage8";
+			this->tabPage8->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage8->Size = System::Drawing::Size(1191, 343);
+			this->tabPage8->TabIndex = 2;
+			this->tabPage8->Text = L"Number Of Jobs";
+			this->tabPage8->UseVisualStyleBackColor = true;
+			this->tabPage8->Click += gcnew System::EventHandler(this, &MyForm::tabPage8_Click);
 			// 
-			// ShowCusRBTN
+			// label9
 			// 
-			this->ShowCusRBTN->AutoSize = true;
-			this->ShowCusRBTN->Location = System::Drawing::Point(35, 95);
-			this->ShowCusRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->ShowCusRBTN->Name = L"ShowCusRBTN";
-			this->ShowCusRBTN->Size = System::Drawing::Size(128, 20);
-			this->ShowCusRBTN->TabIndex = 4;
-			this->ShowCusRBTN->TabStop = true;
-			this->ShowCusRBTN->Text = L"Show Customers";
-			this->ShowCusRBTN->UseVisualStyleBackColor = true;
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(8, 96);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(60, 16);
+			this->label9->TabIndex = 6;
+			this->label9->Text = L"Services";
 			// 
-			// AddCustRBTN
+			// comboBox4
 			// 
-			this->AddCustRBTN->AutoSize = true;
-			this->AddCustRBTN->Location = System::Drawing::Point(35, 41);
-			this->AddCustRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->AddCustRBTN->Name = L"AddCustRBTN";
-			this->AddCustRBTN->Size = System::Drawing::Size(113, 20);
-			this->AddCustRBTN->TabIndex = 2;
-			this->AddCustRBTN->TabStop = true;
-			this->AddCustRBTN->Text = L"Add Customer";
-			this->AddCustRBTN->UseVisualStyleBackColor = true;
-			this->AddCustRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
+			this->comboBox4->FormattingEnabled = true;
+			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Engine Oil", L"Tire Replacement" });
+			this->comboBox4->Location = System::Drawing::Point(88, 96);
+			this->comboBox4->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox4->Name = L"comboBox4";
+			this->comboBox4->Size = System::Drawing::Size(160, 24);
+			this->comboBox4->TabIndex = 5;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(88, 150);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(100, 28);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"OK";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(445, 49);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(63, 16);
+			this->label6->TabIndex = 3;
+			this->label6->Text = L"End Date";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(4, 49);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(66, 16);
+			this->label5->TabIndex = 2;
+			this->label5->Text = L"Start Date";
+			// 
+			// dateTimePicker3
+			// 
+			this->dateTimePicker3->Location = System::Drawing::Point(523, 42);
+			this->dateTimePicker3->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker3->Name = L"dateTimePicker3";
+			this->dateTimePicker3->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker3->TabIndex = 1;
+			// 
+			// dateTimePicker2
+			// 
+			this->dateTimePicker2->Location = System::Drawing::Point(88, 43);
+			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker2->Name = L"dateTimePicker2";
+			this->dateTimePicker2->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker2->TabIndex = 0;
+			// 
+			// tabPage6
+			// 
+			this->tabPage6->Controls->Add(this->label1);
+			this->tabPage6->Controls->Add(this->LENTERBELOW);
+			this->tabPage6->Controls->Add(this->ExecuteBTN);
+			this->tabPage6->Controls->Add(this->QueryTB);
+			this->tabPage6->Location = System::Drawing::Point(4, 25);
+			this->tabPage6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage6->Name = L"tabPage6";
+			this->tabPage6->Size = System::Drawing::Size(1191, 343);
+			this->tabPage6->TabIndex = 0;
+			this->tabPage6->Text = L"SQL";
+			this->tabPage6->UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(293, 52);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(276, 39);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Enter SQL Query";
+			// 
+			// LENTERBELOW
+			// 
+			this->LENTERBELOW->AutoSize = true;
+			this->LENTERBELOW->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->LENTERBELOW->Location = System::Drawing::Point(329, 111);
+			this->LENTERBELOW->Name = L"LENTERBELOW";
+			this->LENTERBELOW->Size = System::Drawing::Size(188, 29);
+			this->LENTERBELOW->TabIndex = 3;
+			this->LENTERBELOW->Text = L"ENTER BELOW";
+			this->LENTERBELOW->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
+			// 
+			// ExecuteBTN
+			// 
+			this->ExecuteBTN->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ExecuteBTN->Location = System::Drawing::Point(333, 229);
+			this->ExecuteBTN->Margin = System::Windows::Forms::Padding(4);
+			this->ExecuteBTN->Name = L"ExecuteBTN";
+			this->ExecuteBTN->Size = System::Drawing::Size(209, 42);
+			this->ExecuteBTN->TabIndex = 2;
+			this->ExecuteBTN->Text = L"Execute";
+			this->ExecuteBTN->UseVisualStyleBackColor = true;
+			this->ExecuteBTN->Click += gcnew System::EventHandler(this, &MyForm::ExecuteBTN_Click);
+			// 
+			// QueryTB
+			// 
+			this->QueryTB->Location = System::Drawing::Point(225, 160);
+			this->QueryTB->Margin = System::Windows::Forms::Padding(4);
+			this->QueryTB->Name = L"QueryTB";
+			this->QueryTB->Size = System::Drawing::Size(423, 22);
+			this->QueryTB->TabIndex = 1;
+			// 
+			// tabPage5
+			// 
+			this->tabPage5->Controls->Add(this->radioButton2);
+			this->tabPage5->Controls->Add(this->ShowSchedRBTN);
+			this->tabPage5->Controls->Add(this->SchedCusRBTN);
+			this->tabPage5->Location = System::Drawing::Point(4, 25);
+			this->tabPage5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage5->Name = L"tabPage5";
+			this->tabPage5->Size = System::Drawing::Size(1191, 343);
+			this->tabPage5->TabIndex = 0;
+			this->tabPage5->Text = L"Schedule";
+			this->tabPage5->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(53, 59);
+			this->radioButton2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(88, 20);
+			this->radioButton2->TabIndex = 2;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"Pick Tech";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton2_CheckedChanged);
+			// 
+			// ShowSchedRBTN
+			// 
+			this->ShowSchedRBTN->AutoSize = true;
+			this->ShowSchedRBTN->Location = System::Drawing::Point(53, 84);
+			this->ShowSchedRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->ShowSchedRBTN->Name = L"ShowSchedRBTN";
+			this->ShowSchedRBTN->Size = System::Drawing::Size(121, 20);
+			this->ShowSchedRBTN->TabIndex = 1;
+			this->ShowSchedRBTN->Text = L"Show Schedule";
+			this->ShowSchedRBTN->UseVisualStyleBackColor = true;
+			// 
+			// SchedCusRBTN
+			// 
+			this->SchedCusRBTN->AutoSize = true;
+			this->SchedCusRBTN->Location = System::Drawing::Point(53, 34);
+			this->SchedCusRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->SchedCusRBTN->Name = L"SchedCusRBTN";
+			this->SchedCusRBTN->Size = System::Drawing::Size(145, 20);
+			this->SchedCusRBTN->TabIndex = 0;
+			this->SchedCusRBTN->TabStop = true;
+			this->SchedCusRBTN->Text = L"Schedule Customer";
+			this->SchedCusRBTN->UseVisualStyleBackColor = true;
+			this->SchedCusRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton12_CheckedChanged);
+			// 
+			// tabPage4
+			// 
+			this->tabPage4->Controls->Add(this->button6);
+			this->tabPage4->Controls->Add(this->radioButton1);
+			this->tabPage4->Controls->Add(this->RemTechRBTN);
+			this->tabPage4->Controls->Add(this->AddSerToTechRBTN);
+			this->tabPage4->Controls->Add(this->AddTechRBTN);
+			this->tabPage4->Location = System::Drawing::Point(4, 25);
+			this->tabPage4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage4->Name = L"tabPage4";
+			this->tabPage4->Size = System::Drawing::Size(1191, 343);
+			this->tabPage4->TabIndex = 0;
+			this->tabPage4->Text = L"Technicians";
+			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(53, 146);
+			this->button6->Margin = System::Windows::Forms::Padding(4);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(188, 28);
+			this->button6->TabIndex = 4;
+			this->button6->Text = L"Technicians with no Work";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(53, 117);
+			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(95, 20);
+			this->radioButton1->TabIndex = 3;
+			this->radioButton1->Text = L"Show Tech";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// RemTechRBTN
+			// 
+			this->RemTechRBTN->AutoSize = true;
+			this->RemTechRBTN->Location = System::Drawing::Point(53, 89);
+			this->RemTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->RemTechRBTN->Name = L"RemTechRBTN";
+			this->RemTechRBTN->Size = System::Drawing::Size(114, 20);
+			this->RemTechRBTN->TabIndex = 2;
+			this->RemTechRBTN->Text = L"Remove Tech";
+			this->RemTechRBTN->UseVisualStyleBackColor = true;
+			this->RemTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::RemTechRBTN_CheckedChanged);
+			// 
+			// AddSerToTechRBTN
+			// 
+			this->AddSerToTechRBTN->AutoSize = true;
+			this->AddSerToTechRBTN->Location = System::Drawing::Point(53, 62);
+			this->AddSerToTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddSerToTechRBTN->Name = L"AddSerToTechRBTN";
+			this->AddSerToTechRBTN->Size = System::Drawing::Size(150, 20);
+			this->AddSerToTechRBTN->TabIndex = 1;
+			this->AddSerToTechRBTN->Text = L"Add Service to Tech";
+			this->AddSerToTechRBTN->UseVisualStyleBackColor = true;
+			this->AddSerToTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddSerToTechRBTN_CheckedChanged);
+			// 
+			// AddTechRBTN
+			// 
+			this->AddTechRBTN->AutoSize = true;
+			this->AddTechRBTN->Location = System::Drawing::Point(53, 36);
+			this->AddTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddTechRBTN->Name = L"AddTechRBTN";
+			this->AddTechRBTN->Size = System::Drawing::Size(87, 20);
+			this->AddTechRBTN->TabIndex = 0;
+			this->AddTechRBTN->TabStop = true;
+			this->AddTechRBTN->Text = L"Add Tech";
+			this->AddTechRBTN->UseVisualStyleBackColor = true;
+			this->AddTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddTechRBTN_CheckedChanged);
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->ShowSerRBTN);
+			this->tabPage3->Controls->Add(this->RemSerRBTN);
+			this->tabPage3->Controls->Add(this->AddSerRBTN);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Size = System::Drawing::Size(1191, 343);
+			this->tabPage3->TabIndex = 0;
+			this->tabPage3->Text = L"Services";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// ShowSerRBTN
+			// 
+			this->ShowSerRBTN->AutoSize = true;
+			this->ShowSerRBTN->Location = System::Drawing::Point(43, 84);
+			this->ShowSerRBTN->Margin = System::Windows::Forms::Padding(4);
+			this->ShowSerRBTN->Name = L"ShowSerRBTN";
+			this->ShowSerRBTN->Size = System::Drawing::Size(117, 20);
+			this->ShowSerRBTN->TabIndex = 2;
+			this->ShowSerRBTN->TabStop = true;
+			this->ShowSerRBTN->Text = L"Show Services";
+			this->ShowSerRBTN->UseVisualStyleBackColor = true;
+			// 
+			// RemSerRBTN
+			// 
+			this->RemSerRBTN->AutoSize = true;
+			this->RemSerRBTN->Location = System::Drawing::Point(43, 55);
+			this->RemSerRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->RemSerRBTN->Name = L"RemSerRBTN";
+			this->RemSerRBTN->Size = System::Drawing::Size(129, 20);
+			this->RemSerRBTN->TabIndex = 1;
+			this->RemSerRBTN->TabStop = true;
+			this->RemSerRBTN->Text = L"Remove Service";
+			this->RemSerRBTN->UseVisualStyleBackColor = true;
+			this->RemSerRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::RemSerRBTN_CheckedChanged);
+			// 
+			// AddSerRBTN
+			// 
+			this->AddSerRBTN->AutoSize = true;
+			this->AddSerRBTN->Location = System::Drawing::Point(43, 30);
+			this->AddSerRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddSerRBTN->Name = L"AddSerRBTN";
+			this->AddSerRBTN->Size = System::Drawing::Size(102, 20);
+			this->AddSerRBTN->TabIndex = 0;
+			this->AddSerRBTN->TabStop = true;
+			this->AddSerRBTN->Text = L"Add Service";
+			this->AddSerRBTN->UseVisualStyleBackColor = true;
+			this->AddSerRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton7_CheckedChanged);
 			// 
 			// tabPage2
 			// 
@@ -217,7 +621,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Size = System::Drawing::Size(940, 343);
+			this->tabPage2->Size = System::Drawing::Size(1191, 343);
 			this->tabPage2->TabIndex = 0;
 			this->tabPage2->Text = L"Cars";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -270,226 +674,497 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->ShowCarRBTN->UseVisualStyleBackColor = true;
 			this->ShowCarRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton6_CheckedChanged);
 			// 
-			// tabPage3
+			// tabPage1
 			// 
-			this->tabPage3->Controls->Add(this->ShowSerRBTN);
-			this->tabPage3->Controls->Add(this->RemSerRBTN);
-			this->tabPage3->Controls->Add(this->AddSerRBTN);
-			this->tabPage3->Location = System::Drawing::Point(4, 25);
-			this->tabPage3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(940, 343);
-			this->tabPage3->TabIndex = 0;
-			this->tabPage3->Text = L"Services";
-			this->tabPage3->UseVisualStyleBackColor = true;
+			this->tabPage1->Controls->Add(this->DelCusRBTN);
+			this->tabPage1->Controls->Add(this->ShowCusRBTN);
+			this->tabPage1->Controls->Add(this->AddCustRBTN);
+			this->tabPage1->Location = System::Drawing::Point(4, 25);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Size = System::Drawing::Size(1191, 343);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"Customer";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tabPage1->Click += gcnew System::EventHandler(this, &MyForm::tabPage1_Click);
 			// 
-			// ShowSerRBTN
+			// DelCusRBTN
 			// 
-			this->ShowSerRBTN->AutoSize = true;
-			this->ShowSerRBTN->Location = System::Drawing::Point(43, 84);
-			this->ShowSerRBTN->Margin = System::Windows::Forms::Padding(4);
-			this->ShowSerRBTN->Name = L"ShowSerRBTN";
-			this->ShowSerRBTN->Size = System::Drawing::Size(117, 20);
-			this->ShowSerRBTN->TabIndex = 2;
-			this->ShowSerRBTN->TabStop = true;
-			this->ShowSerRBTN->Text = L"Show Services";
-			this->ShowSerRBTN->UseVisualStyleBackColor = true;
+			this->DelCusRBTN->AutoSize = true;
+			this->DelCusRBTN->Location = System::Drawing::Point(35, 68);
+			this->DelCusRBTN->Margin = System::Windows::Forms::Padding(4);
+			this->DelCusRBTN->Name = L"DelCusRBTN";
+			this->DelCusRBTN->Size = System::Drawing::Size(135, 20);
+			this->DelCusRBTN->TabIndex = 5;
+			this->DelCusRBTN->Text = L"Delete Customers";
+			this->DelCusRBTN->UseVisualStyleBackColor = true;
+			this->DelCusRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::DelCusRBTN_CheckedChanged);
 			// 
-			// RemSerRBTN
+			// ShowCusRBTN
 			// 
-			this->RemSerRBTN->AutoSize = true;
-			this->RemSerRBTN->Location = System::Drawing::Point(43, 55);
-			this->RemSerRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->RemSerRBTN->Name = L"RemSerRBTN";
-			this->RemSerRBTN->Size = System::Drawing::Size(129, 20);
-			this->RemSerRBTN->TabIndex = 1;
-			this->RemSerRBTN->TabStop = true;
-			this->RemSerRBTN->Text = L"Remove Service";
-			this->RemSerRBTN->UseVisualStyleBackColor = true;
-			this->RemSerRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::RemSerRBTN_CheckedChanged);
+			this->ShowCusRBTN->AutoSize = true;
+			this->ShowCusRBTN->Location = System::Drawing::Point(35, 95);
+			this->ShowCusRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->ShowCusRBTN->Name = L"ShowCusRBTN";
+			this->ShowCusRBTN->Size = System::Drawing::Size(128, 20);
+			this->ShowCusRBTN->TabIndex = 4;
+			this->ShowCusRBTN->Text = L"Show Customers";
+			this->ShowCusRBTN->UseVisualStyleBackColor = true;
 			// 
-			// AddSerRBTN
+			// AddCustRBTN
 			// 
-			this->AddSerRBTN->AutoSize = true;
-			this->AddSerRBTN->Location = System::Drawing::Point(43, 30);
-			this->AddSerRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->AddSerRBTN->Name = L"AddSerRBTN";
-			this->AddSerRBTN->Size = System::Drawing::Size(102, 20);
-			this->AddSerRBTN->TabIndex = 0;
-			this->AddSerRBTN->TabStop = true;
-			this->AddSerRBTN->Text = L"Add Service";
-			this->AddSerRBTN->UseVisualStyleBackColor = true;
-			this->AddSerRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton7_CheckedChanged);
+			this->AddCustRBTN->AutoSize = true;
+			this->AddCustRBTN->Location = System::Drawing::Point(35, 41);
+			this->AddCustRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddCustRBTN->Name = L"AddCustRBTN";
+			this->AddCustRBTN->Size = System::Drawing::Size(113, 20);
+			this->AddCustRBTN->TabIndex = 2;
+			this->AddCustRBTN->TabStop = true;
+			this->AddCustRBTN->Text = L"Add Customer";
+			this->AddCustRBTN->UseVisualStyleBackColor = true;
+			this->AddCustRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
 			// 
-			// tabPage4
+			// tabControl1
 			// 
-			this->tabPage4->Controls->Add(this->radioButton1);
-			this->tabPage4->Controls->Add(this->RemTechRBTN);
-			this->tabPage4->Controls->Add(this->AddSerToTechRBTN);
-			this->tabPage4->Controls->Add(this->AddTechRBTN);
-			this->tabPage4->Location = System::Drawing::Point(4, 25);
-			this->tabPage4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Size = System::Drawing::Size(940, 343);
-			this->tabPage4->TabIndex = 0;
-			this->tabPage4->Text = L"Technicians";
-			this->tabPage4->UseVisualStyleBackColor = true;
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Controls->Add(this->tabPage4);
+			this->tabControl1->Controls->Add(this->tabPage5);
+			this->tabControl1->Controls->Add(this->tabPage6);
+			this->tabControl1->Controls->Add(this->tabPage7);
+			this->tabControl1->Controls->Add(this->tabPage8);
+			this->tabControl1->Controls->Add(this->tabPage9);
+			this->tabControl1->Controls->Add(this->tabPage10);
+			this->tabControl1->Controls->Add(this->tabPage11);
+			this->tabControl1->Controls->Add(this->tabPage12);
+			this->tabControl1->Controls->Add(this->tabPage13);
+			this->tabControl1->Location = System::Drawing::Point(13, 2);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(1199, 372);
+			this->tabControl1->TabIndex = 0;
 			// 
-			// radioButton1
+			// tabPage7
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(53, 117);
-			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(95, 20);
-			this->radioButton1->TabIndex = 3;
-			this->radioButton1->Text = L"Show Tech";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->tabPage7->Controls->Add(this->label8);
+			this->tabPage7->Controls->Add(this->comboBox3);
+			this->tabPage7->Controls->Add(this->button1);
+			this->tabPage7->Controls->Add(this->label4);
+			this->tabPage7->Controls->Add(this->dateTimePicker1);
+			this->tabPage7->Location = System::Drawing::Point(4, 25);
+			this->tabPage7->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage7->Name = L"tabPage7";
+			this->tabPage7->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage7->Size = System::Drawing::Size(1191, 343);
+			this->tabPage7->TabIndex = 1;
+			this->tabPage7->Text = L"Info for Job";
+			this->tabPage7->UseVisualStyleBackColor = true;
+			this->tabPage7->Click += gcnew System::EventHandler(this, &MyForm::tabPage7_Click);
 			// 
-			// RemTechRBTN
+			// label8
 			// 
-			this->RemTechRBTN->AutoSize = true;
-			this->RemTechRBTN->Location = System::Drawing::Point(53, 89);
-			this->RemTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->RemTechRBTN->Name = L"RemTechRBTN";
-			this->RemTechRBTN->Size = System::Drawing::Size(114, 20);
-			this->RemTechRBTN->TabIndex = 2;
-			this->RemTechRBTN->Text = L"Remove Tech";
-			this->RemTechRBTN->UseVisualStyleBackColor = true;
-			this->RemTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::RemTechRBTN_CheckedChanged);
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(43, 95);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(37, 16);
+			this->label8->TabIndex = 4;
+			this->label8->Text = L"Jobs";
 			// 
-			// AddSerToTechRBTN
+			// comboBox3
 			// 
-			this->AddSerToTechRBTN->AutoSize = true;
-			this->AddSerToTechRBTN->Location = System::Drawing::Point(53, 62);
-			this->AddSerToTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->AddSerToTechRBTN->Name = L"AddSerToTechRBTN";
-			this->AddSerToTechRBTN->Size = System::Drawing::Size(150, 20);
-			this->AddSerToTechRBTN->TabIndex = 1;
-			this->AddSerToTechRBTN->Text = L"Add Service to Tech";
-			this->AddSerToTechRBTN->UseVisualStyleBackColor = true;
-			this->AddSerToTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddSerToTechRBTN_CheckedChanged);
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Tire Replacement", L"Engine Oil" });
+			this->comboBox3->Location = System::Drawing::Point(104, 91);
+			this->comboBox3->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(160, 24);
+			this->comboBox3->TabIndex = 3;
 			// 
-			// AddTechRBTN
+			// button1
 			// 
-			this->AddTechRBTN->AutoSize = true;
-			this->AddTechRBTN->Location = System::Drawing::Point(53, 36);
-			this->AddTechRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->AddTechRBTN->Name = L"AddTechRBTN";
-			this->AddTechRBTN->Size = System::Drawing::Size(87, 20);
-			this->AddTechRBTN->TabIndex = 0;
-			this->AddTechRBTN->TabStop = true;
-			this->AddTechRBTN->Text = L"Add Tech";
-			this->AddTechRBTN->UseVisualStyleBackColor = true;
-			this->AddTechRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::AddTechRBTN_CheckedChanged);
+			this->button1->Location = System::Drawing::Point(104, 144);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(100, 28);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"OK";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// tabPage5
+			// label4
 			// 
-			this->tabPage5->Controls->Add(this->radioButton2);
-			this->tabPage5->Controls->Add(this->ShowSchedRBTN);
-			this->tabPage5->Controls->Add(this->SchedCusRBTN);
-			this->tabPage5->Location = System::Drawing::Point(4, 25);
-			this->tabPage5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage5->Name = L"tabPage5";
-			this->tabPage5->Size = System::Drawing::Size(940, 343);
-			this->tabPage5->TabIndex = 0;
-			this->tabPage5->Text = L"Schedule";
-			this->tabPage5->UseVisualStyleBackColor = true;
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(43, 47);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(36, 16);
+			this->label4->TabIndex = 1;
+			this->label4->Text = L"Date";
 			// 
-			// ShowSchedRBTN
+			// dateTimePicker1
 			// 
-			this->ShowSchedRBTN->AutoSize = true;
-			this->ShowSchedRBTN->Location = System::Drawing::Point(53, 84);
-			this->ShowSchedRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->ShowSchedRBTN->Name = L"ShowSchedRBTN";
-			this->ShowSchedRBTN->Size = System::Drawing::Size(121, 20);
-			this->ShowSchedRBTN->TabIndex = 1;
-			this->ShowSchedRBTN->Text = L"Show Schedule";
-			this->ShowSchedRBTN->UseVisualStyleBackColor = true;
+			this->dateTimePicker1->Location = System::Drawing::Point(104, 47);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker1->TabIndex = 0;
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &MyForm::dateTimePicker1_ValueChanged_1);
 			// 
-			// SchedCusRBTN
+			// tabPage9
 			// 
-			this->SchedCusRBTN->AutoSize = true;
-			this->SchedCusRBTN->Location = System::Drawing::Point(53, 34);
-			this->SchedCusRBTN->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->SchedCusRBTN->Name = L"SchedCusRBTN";
-			this->SchedCusRBTN->Size = System::Drawing::Size(145, 20);
-			this->SchedCusRBTN->TabIndex = 0;
-			this->SchedCusRBTN->TabStop = true;
-			this->SchedCusRBTN->Text = L"Schedule Customer";
-			this->SchedCusRBTN->UseVisualStyleBackColor = true;
-			this->SchedCusRBTN->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton12_CheckedChanged);
+			this->tabPage9->Controls->Add(this->button3);
+			this->tabPage9->Controls->Add(this->label10);
+			this->tabPage9->Controls->Add(this->label7);
+			this->tabPage9->Controls->Add(this->dateTimePicker5);
+			this->tabPage9->Controls->Add(this->dateTimePicker4);
+			this->tabPage9->Location = System::Drawing::Point(4, 25);
+			this->tabPage9->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage9->Name = L"tabPage9";
+			this->tabPage9->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage9->Size = System::Drawing::Size(1191, 343);
+			this->tabPage9->TabIndex = 3;
+			this->tabPage9->Text = L"Revenue";
+			this->tabPage9->UseVisualStyleBackColor = true;
 			// 
-			// tabPage6
+			// button3
 			// 
-			this->tabPage6->Controls->Add(this->label1);
-			this->tabPage6->Controls->Add(this->LENTERBELOW);
-			this->tabPage6->Controls->Add(this->ExecuteBTN);
-			this->tabPage6->Controls->Add(this->QueryTB);
-			this->tabPage6->Location = System::Drawing::Point(4, 25);
-			this->tabPage6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage6->Name = L"tabPage6";
-			this->tabPage6->Size = System::Drawing::Size(940, 343);
-			this->tabPage6->TabIndex = 0;
-			this->tabPage6->Text = L"SQL";
-			this->tabPage6->UseVisualStyleBackColor = true;
+			this->button3->Location = System::Drawing::Point(27, 101);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(100, 28);
+			this->button3->TabIndex = 4;
+			this->button3->Text = L"Calculate Revenue";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click_1);
 			// 
-			// label1
+			// label10
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(293, 52);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(276, 39);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Enter SQL Query";
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(461, 33);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(63, 16);
+			this->label10->TabIndex = 3;
+			this->label10->Text = L"End Date";
 			// 
-			// LENTERBELOW
+			// label7
 			// 
-			this->LENTERBELOW->AutoSize = true;
-			this->LENTERBELOW->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->LENTERBELOW->Location = System::Drawing::Point(329, 111);
-			this->LENTERBELOW->Name = L"LENTERBELOW";
-			this->LENTERBELOW->Size = System::Drawing::Size(188, 29);
-			this->LENTERBELOW->TabIndex = 3;
-			this->LENTERBELOW->Text = L"ENTER BELOW";
-			this->LENTERBELOW->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(23, 33);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(66, 16);
+			this->label7->TabIndex = 2;
+			this->label7->Text = L"Start Date";
 			// 
-			// ExecuteBTN
+			// dateTimePicker5
 			// 
-			this->ExecuteBTN->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->ExecuteBTN->Location = System::Drawing::Point(333, 229);
-			this->ExecuteBTN->Margin = System::Windows::Forms::Padding(4);
-			this->ExecuteBTN->Name = L"ExecuteBTN";
-			this->ExecuteBTN->Size = System::Drawing::Size(209, 42);
-			this->ExecuteBTN->TabIndex = 2;
-			this->ExecuteBTN->Text = L"Execute";
-			this->ExecuteBTN->UseVisualStyleBackColor = true;
-			this->ExecuteBTN->Click += gcnew System::EventHandler(this, &MyForm::ExecuteBTN_Click);
+			this->dateTimePicker5->Location = System::Drawing::Point(557, 32);
+			this->dateTimePicker5->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker5->Name = L"dateTimePicker5";
+			this->dateTimePicker5->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker5->TabIndex = 1;
 			// 
-			// QueryTB
+			// dateTimePicker4
 			// 
-			this->QueryTB->Location = System::Drawing::Point(225, 160);
-			this->QueryTB->Margin = System::Windows::Forms::Padding(4);
-			this->QueryTB->Name = L"QueryTB";
-			this->QueryTB->Size = System::Drawing::Size(423, 22);
-			this->QueryTB->TabIndex = 1;
+			this->dateTimePicker4->Location = System::Drawing::Point(105, 32);
+			this->dateTimePicker4->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker4->Name = L"dateTimePicker4";
+			this->dateTimePicker4->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker4->TabIndex = 0;
 			// 
-			// radioButton2
+			// tabPage10
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(53, 59);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(88, 20);
-			this->radioButton2->TabIndex = 2;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Pick Tech";
-			this->radioButton2->UseVisualStyleBackColor = true;
-			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton2_CheckedChanged);
+			this->tabPage10->Controls->Add(this->button4);
+			this->tabPage10->Controls->Add(this->comboBox2);
+			this->tabPage10->Controls->Add(this->label13);
+			this->tabPage10->Controls->Add(this->label12);
+			this->tabPage10->Controls->Add(this->label11);
+			this->tabPage10->Controls->Add(this->dateTimePicker7);
+			this->tabPage10->Controls->Add(this->dateTimePicker6);
+			this->tabPage10->Location = System::Drawing::Point(4, 25);
+			this->tabPage10->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage10->Name = L"tabPage10";
+			this->tabPage10->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage10->Size = System::Drawing::Size(1191, 343);
+			this->tabPage10->TabIndex = 4;
+			this->tabPage10->Text = L"Technician Jobs";
+			this->tabPage10->UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(40, 144);
+			this->button4->Margin = System::Windows::Forms::Padding(4);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(100, 28);
+			this->button4->TabIndex = 6;
+			this->button4->Text = L"OK";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"David S.", L"Charles P." });
+			this->comboBox2->Location = System::Drawing::Point(164, 97);
+			this->comboBox2->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(160, 24);
+			this->comboBox2->TabIndex = 5;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(36, 101);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(73, 16);
+			this->label13->TabIndex = 4;
+			this->label13->Text = L"Technician";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(520, 50);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(63, 16);
+			this->label12->TabIndex = 3;
+			this->label12->Text = L"End Date";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(36, 50);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(66, 16);
+			this->label11->TabIndex = 2;
+			this->label11->Text = L"Start Date";
+			// 
+			// dateTimePicker7
+			// 
+			this->dateTimePicker7->Location = System::Drawing::Point(623, 43);
+			this->dateTimePicker7->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker7->Name = L"dateTimePicker7";
+			this->dateTimePicker7->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker7->TabIndex = 1;
+			// 
+			// dateTimePicker6
+			// 
+			this->dateTimePicker6->Location = System::Drawing::Point(164, 43);
+			this->dateTimePicker6->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker6->Name = L"dateTimePicker6";
+			this->dateTimePicker6->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker6->TabIndex = 0;
+			// 
+			// tabPage11
+			// 
+			this->tabPage11->Controls->Add(this->label14);
+			this->tabPage11->Controls->Add(this->comboBox5);
+			this->tabPage11->Controls->Add(this->button5);
+			this->tabPage11->Location = System::Drawing::Point(4, 25);
+			this->tabPage11->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage11->Name = L"tabPage11";
+			this->tabPage11->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage11->Size = System::Drawing::Size(1191, 343);
+			this->tabPage11->TabIndex = 5;
+			this->tabPage11->Text = L"Customer Schedule";
+			this->tabPage11->UseVisualStyleBackColor = true;
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(8, 31);
+			this->label14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(64, 16);
+			this->label14->TabIndex = 2;
+			this->label14->Text = L"Customer";
+			// 
+			// comboBox5
+			// 
+			this->comboBox5->FormattingEnabled = true;
+			this->comboBox5->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Cim P", L"Dave S" });
+			this->comboBox5->Location = System::Drawing::Point(96, 27);
+			this->comboBox5->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox5->Name = L"comboBox5";
+			this->comboBox5->Size = System::Drawing::Size(160, 24);
+			this->comboBox5->TabIndex = 1;
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(96, 71);
+			this->button5->Margin = System::Windows::Forms::Padding(4);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(100, 28);
+			this->button5->TabIndex = 0;
+			this->button5->Text = L"OK";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// tabPage12
+			// 
+			this->tabPage12->Controls->Add(this->button7);
+			this->tabPage12->Controls->Add(this->label16);
+			this->tabPage12->Controls->Add(this->label15);
+			this->tabPage12->Controls->Add(this->dateTimePicker9);
+			this->tabPage12->Controls->Add(this->dateTimePicker8);
+			this->tabPage12->Location = System::Drawing::Point(4, 25);
+			this->tabPage12->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage12->Name = L"tabPage12";
+			this->tabPage12->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage12->Size = System::Drawing::Size(1191, 343);
+			this->tabPage12->TabIndex = 6;
+			this->tabPage12->Text = L"Technician Bonus";
+			this->tabPage12->UseVisualStyleBackColor = true;
+			// 
+			// button7
+			// 
+			this->button7->Location = System::Drawing::Point(87, 92);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(100, 28);
+			this->button7->TabIndex = 4;
+			this->button7->Text = L"OK";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(8, 41);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(66, 16);
+			this->label16->TabIndex = 3;
+			this->label16->Text = L"Start Date";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(448, 42);
+			this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(63, 16);
+			this->label15->TabIndex = 2;
+			this->label15->Text = L"End Date";
+			// 
+			// dateTimePicker9
+			// 
+			this->dateTimePicker9->Location = System::Drawing::Point(525, 34);
+			this->dateTimePicker9->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker9->Name = L"dateTimePicker9";
+			this->dateTimePicker9->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker9->TabIndex = 1;
+			// 
+			// dateTimePicker8
+			// 
+			this->dateTimePicker8->Location = System::Drawing::Point(87, 33);
+			this->dateTimePicker8->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker8->Name = L"dateTimePicker8";
+			this->dateTimePicker8->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker8->TabIndex = 0;
+			// 
+			// tabPage13
+			// 
+			this->tabPage13->Controls->Add(this->label20);
+			this->tabPage13->Controls->Add(this->label19);
+			this->tabPage13->Controls->Add(this->chart1);
+			this->tabPage13->Controls->Add(this->label18);
+			this->tabPage13->Controls->Add(this->label17);
+			this->tabPage13->Controls->Add(this->dateTimePicker11);
+			this->tabPage13->Controls->Add(this->dateTimePicker10);
+			this->tabPage13->Location = System::Drawing::Point(4, 25);
+			this->tabPage13->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage13->Name = L"tabPage13";
+			this->tabPage13->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage13->Size = System::Drawing::Size(1191, 343);
+			this->tabPage13->TabIndex = 7;
+			this->tabPage13->Text = L"Graph";
+			this->tabPage13->UseVisualStyleBackColor = true;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(682, 130);
+			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(63, 16);
+			this->label18->TabIndex = 3;
+			this->label18->Text = L"End Date";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(679, 46);
+			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(66, 16);
+			this->label17->TabIndex = 2;
+			this->label17->Text = L"Start Date";
+			this->label17->Click += gcnew System::EventHandler(this, &MyForm::label17_Click);
+			// 
+			// dateTimePicker11
+			// 
+			this->dateTimePicker11->Location = System::Drawing::Point(775, 130);
+			this->dateTimePicker11->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker11->Name = L"dateTimePicker11";
+			this->dateTimePicker11->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker11->TabIndex = 1;
+			// 
+			// dateTimePicker10
+			// 
+			this->dateTimePicker10->Location = System::Drawing::Point(775, 41);
+			this->dateTimePicker10->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker10->Name = L"dateTimePicker10";
+			this->dateTimePicker10->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker10->TabIndex = 0;
+			this->dateTimePicker10->ValueChanged += gcnew System::EventHandler(this, &MyForm::dateTimePicker10_ValueChanged);
+			// 
+			// chart1
+			// 
+			chartArea4->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chart1->Legends->Add(legend4);
+			this->chart1->Location = System::Drawing::Point(111, 20);
+			this->chart1->Name = L"chart1";
+			series4->ChartArea = L"ChartArea1";
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series4->Legend = L"Legend1";
+			series4->Name = L"Series1";
+			dataPoint7->Label = L"Oil Changes";
+			dataPoint8->Label = L"Breaks";
+			series4->Points->Add(dataPoint7);
+			series4->Points->Add(dataPoint8);
+			this->chart1->Series->Add(series4);
+			this->chart1->Size = System::Drawing::Size(300, 300);
+			this->chart1->TabIndex = 4;
+			this->chart1->Text = L"chart1";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(134, 251);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(69, 32);
+			this->label19->TabIndex = 5;
+			this->label19->Text = L"Start Date:\r\nEnd Date:";
+			this->label19->Click += gcnew System::EventHandler(this, &MyForm::label19_Click);
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(108, 79);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(188, 16);
+			this->label20->TabIndex = 6;
+			this->label20->Text = L"Services Done in Date Range:";
+			this->label20->Click += gcnew System::EventHandler(this, &MyForm::label20_Click);
 			// 
 			// MyForm
 			// 
@@ -502,19 +1177,34 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->Text = L"SQL Query";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			this->tabControl1->ResumeLayout(false);
-			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
-			this->tabPage2->ResumeLayout(false);
-			this->tabPage2->PerformLayout();
-			this->tabPage3->ResumeLayout(false);
-			this->tabPage3->PerformLayout();
-			this->tabPage4->ResumeLayout(false);
-			this->tabPage4->PerformLayout();
-			this->tabPage5->ResumeLayout(false);
-			this->tabPage5->PerformLayout();
+			this->tabPage8->ResumeLayout(false);
+			this->tabPage8->PerformLayout();
 			this->tabPage6->ResumeLayout(false);
 			this->tabPage6->PerformLayout();
+			this->tabPage5->ResumeLayout(false);
+			this->tabPage5->PerformLayout();
+			this->tabPage4->ResumeLayout(false);
+			this->tabPage4->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			this->tabPage2->ResumeLayout(false);
+			this->tabPage2->PerformLayout();
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
+			this->tabControl1->ResumeLayout(false);
+			this->tabPage7->ResumeLayout(false);
+			this->tabPage7->PerformLayout();
+			this->tabPage9->ResumeLayout(false);
+			this->tabPage9->PerformLayout();
+			this->tabPage10->ResumeLayout(false);
+			this->tabPage10->PerformLayout();
+			this->tabPage11->ResumeLayout(false);
+			this->tabPage11->PerformLayout();
+			this->tabPage12->ResumeLayout(false);
+			this->tabPage12->PerformLayout();
+			this->tabPage13->ResumeLayout(false);
+			this->tabPage13->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -822,7 +1512,7 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 			lblPhone->Location = System::Drawing::Point(10, 140);
 			lblPhone->AutoSize = true;
 			inputForm->Controls->Add(lblPhone);
-			
+
 
 			ComboBox^ comboBox2 = gcnew ComboBox();
 			comboBox2->DropDownStyle = ComboBoxStyle::DropDownList;
@@ -1415,11 +2105,11 @@ namespace SQL_PROJECT {			//replace with name of c++ project (ex: project 12)
 
 	private: System::Void comboBox1_SelectedIndexChanged_2(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
 
-private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (radioButton2->Checked) {
+	private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (radioButton2->Checked) {
 			Form^ inputForm = gcnew Form();
 			inputForm->Text = "Enter Tech Details";
 			inputForm->Size = System::Drawing::Size(350, 300);
@@ -1497,11 +2187,138 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 				}
 			}
 
-	}
+		}
 
 		radioButton2->Checked = false;
-}
+	}
 
+	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void tabPage8_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void dateTimePicker1_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		DateTime selectedDate = dateTimePicker1->Value;
+
+
+		DateTime targetDate = DateTime(2025, 4, 10);  // For example, April 10th, 2025
+
+
+		if (selectedDate.Date == targetDate.Date) {
+
+			Form^ inputForm = gcnew Form();
+			inputForm->Text = "List of Information";
+			inputForm->Size = System::Drawing::Size(350, 300);
+			inputForm->StartPosition = FormStartPosition::CenterParent;
+
+			// Customer Name label and sample text
+			Label^ lblCustomerName = gcnew Label();
+			lblCustomerName->Text = "Customer Name: Cim Po";
+			lblCustomerName->Location = System::Drawing::Point(10, 20);
+			lblCustomerName->AutoSize = true;
+			inputForm->Controls->Add(lblCustomerName);
+
+			// Technician label and sample text
+			Label^ lblTechnician = gcnew Label();
+			lblTechnician->Text = "Technician: Charles Vincent";
+			lblTechnician->Location = System::Drawing::Point(10, 60);
+			lblTechnician->AutoSize = true;
+			inputForm->Controls->Add(lblTechnician);
+
+			// Make label and sample text
+			Label^ lblMake = gcnew Label();
+			lblMake->Text = "Make: Mini";
+			lblMake->Location = System::Drawing::Point(10, 100);
+			lblMake->AutoSize = true;
+			inputForm->Controls->Add(lblMake);
+
+			// Model label and sample text
+			Label^ lblModel = gcnew Label();
+			lblModel->Text = "Model: Cooper";
+			lblModel->Location = System::Drawing::Point(10, 140);
+			lblModel->AutoSize = true;
+			inputForm->Controls->Add(lblModel);
+
+			// License Plate label and sample text
+			Label^ lblLicensePlate = gcnew Label();
+			lblLicensePlate->Text = "License Plate: LF2345";
+			lblLicensePlate->Location = System::Drawing::Point(10, 180);
+			lblLicensePlate->AutoSize = true;
+			inputForm->Controls->Add(lblLicensePlate);
+
+			// OK button
+			Button^ btnOK = gcnew Button();
+			btnOK->Text = "OK";
+			btnOK->Location = System::Drawing::Point(120, 220);
+			btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
+			inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+			inputForm->Controls->Add(btnOK);
+
+
+			inputForm->ShowDialog();
+		}
+		else {
+
+			MessageBox::Show("Please select a different date", "Date Mismatch", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+	}
+
+	private: System::Void tabPage7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		int jobCount = 3;
+		String^ message = "Total Number of Jobs: " + jobCount.ToString();
+
+		MessageBox::Show(message, "Job Summary", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void comboBox2_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		double totalRevenue = 1500.00;
+
+		String^ message = "Total Revenue : " + totalRevenue;
+
+		MessageBox::Show(message, "Revenue Summary", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ message = "Service: Engine Oil, License Plate: LF3455 , Make: Mini, Model: Cooper, Name: Cim" + "\nService: Tire Replacement, License Plate: GA5463 , Make: Toyota, Model: Camry, Name: Dave";
+
+		MessageBox::Show(message, "Job Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ message = "License Plate: LF3455 , Make: Mini, Model: Cooper, Date: 4/10/2025 Service: Engine Oil Cost: 750 Tech: Charles";
+		MessageBox::Show(message, "Customer Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ message = "Ricky, Sammi, Soyef";
+		MessageBox::Show(message, "Technicians with no Work", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ message = "Charles P";
+		MessageBox::Show(message, "Tech Bonus", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void label17_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void dateTimePicker10_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label19_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label20_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
-
