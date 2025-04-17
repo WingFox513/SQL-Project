@@ -120,10 +120,10 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 	private: System::Windows::Forms::Label^ label17;
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker11;
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker10;
-	//private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+		   //private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	private: System::Windows::Forms::Label^ label19;
 	private: System::Windows::Forms::Label^ label20;
-private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
+	private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
 
 
 
@@ -1298,7 +1298,7 @@ private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
 			// Show the form modally
 			if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
-				
+
 				String^ firstName = txtID->Text;
 				String^ lastName = txtFirstName->Text;
 				String^ phone = txtLastName->Text;
@@ -1540,7 +1540,7 @@ private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
 
-					String^ query = "INSERT INTO Services (Service_ID, Service, Cost) VALUES (@id, @Service, @Cost)";
+					String^ query = "INSERT INTO Services (Service, Cost) VALUES (@Service, @Cost)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
 					cmd->Parameters->AddWithValue("@Service", Service);
 					cmd->Parameters->AddWithValue("@Cost", Cost);
@@ -1857,7 +1857,7 @@ private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
 
-					String^ query = "INSERT INTO Technician (Tech_ID, Tech_FN, Tech_LN) VALUES (@id, @FN, @LN)";
+					String^ query = "INSERT INTO Technician (Tech_FN, Tech_LN) VALUES (@FN, @LN)";
 					SqlCommand^ cmd = gcnew SqlCommand(query, conn);
 					cmd->Parameters->AddWithValue("@FN", FN);
 					cmd->Parameters->AddWithValue("@LN", LN);
@@ -2259,192 +2259,122 @@ private: System::Windows::Forms::RadioButton^ addCartoCustomerRBTN;
 
 
 	}
-private: System::Void addCartoCustomerRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (addCartoCustomerRBTN->Checked) {
+	private: System::Void addCartoCustomerRBTN_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (!addCartoCustomerRBTN->Checked) return;
+
+		// --- build your pop‑up form and two ComboBoxes as before ---
 		Form^ inputForm = gcnew Form();
-		inputForm->Text = "Enter Car Details";
-		inputForm->Size = System::Drawing::Size(350, 300);
+		inputForm->Text = "Assign Car to Customer";
+		inputForm->Size = System::Drawing::Size(350, 200);
 		inputForm->StartPosition = FormStartPosition::CenterParent;
 
-		// ID label and textbox
-		Label^ lblID = gcnew Label();
-		lblID->Text = "Choose Customer:";
-		lblID->Location = System::Drawing::Point(10, 20);
-		lblID->AutoSize = true;
-		inputForm->Controls->Add(lblID);
+		// Customer ComboBox
+		Label^ lblCust = gcnew Label();
+		lblCust->Text = "Choose Customer:";
+		lblCust->Location = System::Drawing::Point(10, 20);
+		inputForm->Controls->Add(lblCust);
 
-		ComboBox^ comboBox3 = gcnew ComboBox();
-		comboBox3->DropDownStyle = ComboBoxStyle::DropDownList;
-		comboBox3->FormattingEnabled = true;
-
-		try {
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
-			SqlConnection^ conn = gcnew SqlConnection(connString);
-			conn->Open();
-
-			String^ query = "SELECT Cust_FN, Cust_LN FROM Customer"; // adjust column/table names as needed
-			SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-			SqlDataReader^ reader = cmd->ExecuteReader();
-
-			while (reader->Read()) {
-				String^ name = reader["Cust_FN"]->ToString() + " " + reader["Cust_LN"]->ToString();
-
-				// ComboBoxItem: display name, store ID
-				comboBox3->Items->Add(name);
-			}
-
-			// To make the ComboBox display the "value" (name) instead of KeyValuePair string
-			comboBox3->DisplayMember = "Value";
-			comboBox3->ValueMember = "Key";
-
-			reader->Close();
-			conn->Close();
+		ComboBox^ cbCust = gcnew ComboBox();
+		cbCust->DropDownStyle = ComboBoxStyle::DropDownList;
+		cbCust->Location = System::Drawing::Point(120, 20);
+		cbCust->Size = System::Drawing::Size(180, 24);
+		// populate with “First Last” strings
+		{
+			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			SqlConnection^ cn = gcnew SqlConnection(cs);
+			cn->Open();
+			String^ sql = "SELECT Cust_FN + ' ' + Cust_LN AS CustName FROM Customer";
+			SqlCommand^ cmd = gcnew SqlCommand(sql, cn);
+			SqlDataReader^ rdr = cmd->ExecuteReader();
+			while (rdr->Read())
+				cbCust->Items->Add(rdr["CustName"]->ToString());
+			rdr->Close();
+			cn->Close();
 		}
-		catch (Exception^ ex) {
-			MessageBox::Show("Error loading customers: " + ex->Message,
-				"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		inputForm->Controls->Add(cbCust);
+
+		// Car ComboBox
+		Label^ lblCar = gcnew Label();
+		lblCar->Text = "Choose Car:";
+		lblCar->Location = System::Drawing::Point(10, 60);
+		inputForm->Controls->Add(lblCar);
+
+		ComboBox^ cbCar = gcnew ComboBox();
+		cbCar->DropDownStyle = ComboBoxStyle::DropDownList;
+		cbCar->Location = System::Drawing::Point(120, 60);
+		cbCar->Size = System::Drawing::Size(180, 24);
+		// populate with License_Plate
+		{
+			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			SqlConnection^ cn = gcnew SqlConnection(cs);
+			cn->Open();
+			String^ sql = "SELECT License_Plate FROM Car";
+			SqlCommand^ cmd = gcnew SqlCommand(sql, cn);
+			SqlDataReader^ rdr = cmd->ExecuteReader();
+			while (rdr->Read())
+				cbCar->Items->Add(rdr["License_Plate"]->ToString());
+			rdr->Close();
+			cn->Close();
 		}
-
-
-
-		comboBox3->Location = System::Drawing::Point(120, 20);
-		comboBox3->Name = L"comboBox3";
-		comboBox3->Size = System::Drawing::Size(121, 24);
-		comboBox3->TabIndex = 9;
-
-		// Add the ComboBox to the popout form (inputForm)
-		inputForm->Controls->Add(comboBox3);
-		String^ txtID = comboBox3->Text; // or comboBox1->SelectedItem->ToString();
-
-
-
-		// First Name label and textbox
-		Label^ lblFirstName = gcnew Label();
-		lblFirstName->Text = "License Plate:";
-		lblFirstName->Location = System::Drawing::Point(10, 60);
-		lblFirstName->AutoSize = true;
-		inputForm->Controls->Add(lblFirstName);
-
-		ComboBox^ comboBox4 = gcnew ComboBox();
-		comboBox4->DropDownStyle = ComboBoxStyle::DropDownList;
-		comboBox4->FormattingEnabled = true;
-
-
-		try {
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
-			SqlConnection^ conn = gcnew SqlConnection(connString);
-			conn->Open();
-
-			String^ query = "SELECT License_Plate FROM Car"; // adjust column/table names as needed
-			SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-			SqlDataReader^ reader = cmd->ExecuteReader();
-
-			while (reader->Read()) {
-				String^ name = reader["License_Plate"]->ToString();
-
-				// ComboBoxItem: display name, store ID
-				comboBox4->Items->Add(name);
-			}
-
-			// To make the ComboBox display the "value" (name) instead of KeyValuePair string
-			comboBox4->DisplayMember = "Value";
-			comboBox4->ValueMember = "Key";
-
-			reader->Close();
-			conn->Close();
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show("Error loading customers: " + ex->Message,
-				"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
-
-		comboBox4->Location = System::Drawing::Point(120, 60);
-		comboBox4->Name = L"comboBox1";
-		comboBox4->Size = System::Drawing::Size(121, 24);
-		comboBox4->TabIndex = 9;
-
-		inputForm->Controls->Add(comboBox4);
-		String^ txtFirstName = comboBox4->Text;
-
+		inputForm->Controls->Add(cbCar);
 
 		// OK button
 		Button^ btnOK = gcnew Button();
 		btnOK->Text = "OK";
-		btnOK->Location = System::Drawing::Point(120, 190);
+		btnOK->Location = System::Drawing::Point(120, 110);
 		btnOK->DialogResult = System::Windows::Forms::DialogResult::OK;
-		inputForm->AcceptButton = btnOK; // Allows Enter to click the button
+		inputForm->AcceptButton = btnOK;
 		inputForm->Controls->Add(btnOK);
 
-		String^ CarID;
+		if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		
+			array<String^>^ parts = cbCust->Text->Split(' ');
+			String^ firstName = parts[0];
+			String^ lastName = parts[parts->Length - 1];
+			String^ license = cbCar->Text;
 
-		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
-		SqlConnection^ conn = gcnew SqlConnection(connString);
-		conn->Open();
-
-		String^ query = "SELECT License_Plate FROM Car"; // adjust column/table names as needed
-		SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-		SqlDataReader^ reader = cmd->ExecuteReader();
-		String^ LP;
-		while (reader->Read()) {
-			LP = reader["License_Plate"]->ToString();
-		}
-
-		try {
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
-			SqlConnection^ conn = gcnew SqlConnection(connString);
-			conn->Open();
-
-			String^ query = "SELECT Car_ID FROM Car WHERE License_Plate =  " + LP; // adjust column/table names as needed
-			SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-			SqlDataReader^ reader = cmd->ExecuteReader();
-
-			while (reader->Read()) {
-				String^ CarID = reader["Car_ID"]->ToString();
-			}
-
-			reader->Close();
-			conn->Close();
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show("Error loading customers: " + ex->Message,
-				"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
-
-		// Show the form modally
-		if (inputForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		{
-			// Retrieve user input
-			String^ name = txtID;
-			String^ Car = txtFirstName;
-
-			// Build and execute the INSERT command into the MSSQL DB
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			String^ connString = "Data Source=localhost\\sqlexpress;"
+				"Initial Catalog=Mechanic_Shop;"
+				"Integrated Security=True";
 			try {
 				SqlConnection^ conn = gcnew SqlConnection(connString);
 				conn->Open();
 
-				String^ query = "INSERT INTO Car_Owner (Cust_ID, Car_ID) VALUES (@name, @CarID)";
-				SqlCommand^ cmd = gcnew SqlCommand(query, conn);
-				cmd->Parameters->AddWithValue("@CustID", name);
-				cmd->Parameters->AddWithValue("@CarID", Car);
+				
+				SqlCommand^ cmdCust = gcnew SqlCommand(
+					"SELECT dbo.GetCustomerID(@fn, @ln)", conn);
+				cmdCust->Parameters->AddWithValue("@fn", firstName);
+				cmdCust->Parameters->AddWithValue("@ln", lastName);
+				int custId = safe_cast<int>(cmdCust->ExecuteScalar());
 
-				int rowsAffected = cmd->ExecuteNonQuery();
-				MessageBox::Show("Inserted successfully! Rows affected: " + rowsAffected.ToString(),
-					"Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				SqlCommand^ cmdCar = gcnew SqlCommand(
+					"SELECT dbo.GetCarID(@plate)", conn);
+				cmdCar->Parameters->AddWithValue("@plate", license); 
+				int carId = safe_cast<int>(cmdCar->ExecuteScalar());
+
+				SqlCommand^ cmdIns = gcnew SqlCommand(
+					"INSERT INTO Car_Owner (Cust_ID, Car_ID) VALUES (@c,@k)", conn);
+				cmdIns->Parameters->AddWithValue("@c", custId);
+				cmdIns->Parameters->AddWithValue("@k", carId);
+				cmdIns->ExecuteNonQuery();
 
 				conn->Close();
+				MessageBox::Show("Car successfully assigned!",
+					"Done",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::Information);
 			}
 			catch (Exception^ ex) {
 				MessageBox::Show("Error: " + ex->Message,
-					"Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					"Database Error",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::Error);
 			}
 		}
 
+		addCartoCustomerRBTN->Checked = false;
+
+
 	}
-
-	AddCarRBTN->Checked = false;
-
-
-}
-};
+	};
 }
