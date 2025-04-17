@@ -1,0 +1,33 @@
+
+--GetCarID based on license plate
+Create FUNCTION GetCarID(@licensePlate NVARCHAR(50))
+RETURNS INT
+AS
+BEGIN
+    DECLARE @carID INT;
+
+    -- Retrieve the Car ID based on the given license plate
+    SELECT @carID = Car_ID
+    FROM Car
+    WHERE License_Plate = @licensePlate;
+
+    -- Return the Car ID
+    RETURN @carID;
+END;
+
+
+--GetCustomerID based on first name and last name
+CREATE FUNCTION GetCustomerID(@firstName NVARCHAR(50), @lastName NVARCHAR(50))
+RETURNS INT
+AS
+BEGIN
+    DECLARE @customerID INT;
+
+    -- Retrieve the Customer ID based on the given first and last name
+    SELECT @customerID = Cust_ID
+    FROM Customer
+    WHERE Cust_FN = @firstName AND Cust_LN = @lastName;
+
+    -- Return the Customer ID
+    RETURN @customerID;
+END;
