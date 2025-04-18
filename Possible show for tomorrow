@@ -1407,7 +1407,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 			// --- populate Customer & Services lists ---
 			String^ cs = "Data Source=localhost\\sqlexpress;"
-				"Initial Catalog=Mechanic_Shop;"
+				"Initial Catalog=Auto_Project;"
 				"Integrated Security=True";
 			SqlConnection^ conn = gcnew SqlConnection(cs);
 			conn->Open();
@@ -1450,7 +1450,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 	private: void MyForm::RebuildTechPickers()
 	{
 		String^ cs = "Data Source=localhost\\sqlexpress;"
-			"Initial Catalog=Mechanic_Shop;"
+			"Initial Catalog=Auto_Project;"
 			"Integrated Security=True";
 
 		auto pnl = safe_cast<Panel^>(tabPage5->Controls["pnlTech"]);
@@ -1469,6 +1469,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 			// label
 			Label^ lbl = gcnew Label();
+			lbl->AutoSize = true;
 			lbl->Text = "Tech for " + svc + ":";
 			lbl->Location = Drawing::Point(0, y);
 			pnl->Controls->Add(lbl);
@@ -1517,7 +1518,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 		int custId = safe_cast<int>(cbCust->SelectedValue);
 		String^ cs = "Data Source=localhost\\sqlexpress;"
-			"Initial Catalog=Mechanic_Shop;"
+			"Initial Catalog=Auto_Project;"
 			"Integrated Security=True";
 		SqlConnection^ conn = gcnew SqlConnection(cs);
 		conn->Open();
@@ -1549,7 +1550,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 		int svcId = safe_cast<int>(cbSvc->SelectedValue);
 		String^ cs = "Data Source=localhost\\sqlexpress;"
-			"Initial Catalog=Mechanic_Shop;"
+			"Initial Catalog=Auto_Project;"
 			"Integrated Security=True";
 		SqlConnection^ conn = gcnew SqlConnection(cs);
 		conn->Open();
@@ -1614,7 +1615,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 		DateTime svcTime = dtpTime->Value;
 
 		String^ cs = "Data Source=localhost\\sqlexpress;"
-			"Initial Catalog=Mechanic_Shop;"
+			"Initial Catalog=Auto_Project;"
 			"Integrated Security=True";
 		try
 		{
@@ -1730,7 +1731,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 		   // Example event handler for the dynamically created submit button:
 	private: System::Void btnSubmitCustomer_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 		try {
 			SqlConnection^ conn = gcnew SqlConnection(connString);
 			conn->Open();
@@ -1811,7 +1812,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ phone = txtLastName->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -1876,7 +1877,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ id = txtID->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -1936,7 +1937,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 			inputForm->Controls->Add(comboMake);
 
 			// Make combo
-			String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 			SqlConnection^ conn = gcnew SqlConnection(connStr);
 			conn->Open();
 			SqlCommand^ cmdMake = gcnew SqlCommand("SELECT Make FROM Make", conn);
@@ -2070,7 +2071,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2189,7 +2190,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ ST = txtPhone->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2253,7 +2254,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ id = txtID->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2313,7 +2314,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ id = txtID->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2387,7 +2388,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2449,7 +2450,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 				String^ id = txtID->Text;
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2510,7 +2511,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 			// Populate Technician combo box
 			{
-				String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				SqlConnection^ conn = gcnew SqlConnection(connStr);
 				conn->Open();
 				SqlCommand^ cmd = gcnew SqlCommand("SELECT Tech_ID, Tech_FN + ' ' + Tech_LN AS TechName FROM Technician", conn);
@@ -2524,7 +2525,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 			// Populate Services combo box
 			{
-				String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connStr = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				SqlConnection^ conn = gcnew SqlConnection(connStr);
 				conn->Open();
 				SqlCommand^ cmd = gcnew SqlCommand("SELECT Service_ID, Service FROM Services", conn);
@@ -2550,7 +2551,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 					String^ techID = cbTech->Text->Split('-')[0]->Trim();
 					String^ serviceID = cbService->Text->Split('-')[0]->Trim();
 
-					String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+					String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 					try {
 						SqlConnection^ conn = gcnew SqlConnection(connString);
 						conn->Open();
@@ -2639,7 +2640,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 
 
 				// Build and execute the INSERT command into the MSSQL DB
-				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+				String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 				try {
 					SqlConnection^ conn = gcnew SqlConnection(connString);
 					conn->Open();
@@ -2802,7 +2803,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 			inputForm->StartPosition = FormStartPosition::CenterParent;
 
 
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 			try {
 				SqlConnection^ conn = gcnew SqlConnection(connString);
 				conn->Open();
@@ -2841,7 +2842,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 		cbCust->Size = System::Drawing::Size(180, 24);
 		// populate with “First Last” strings
 		{
-			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 			SqlConnection^ cn = gcnew SqlConnection(cs);
 			cn->Open();
 			String^ sql = "SELECT Cust_FN + ' ' + Cust_LN AS CustName FROM Customer";
@@ -2866,7 +2867,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 		cbCar->Size = System::Drawing::Size(180, 24);
 		// populate with License_Plate
 		{
-			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Mechanic_Shop;Integrated Security=True";
+			String^ cs = "Data Source=localhost\\sqlexpress;Initial Catalog=Auto_Project;Integrated Security=True";
 			SqlConnection^ cn = gcnew SqlConnection(cs);
 			cn->Open();
 			String^ sql = "SELECT License_Plate FROM Car";
@@ -2895,7 +2896,7 @@ namespace SQL_Project {			//replace with name of c++ project (ex: project 12)
 			String^ license = cbCar->Text;
 
 			String^ connString = "Data Source=localhost\\sqlexpress;"
-				"Initial Catalog=Mechanic_Shop;"
+				"Initial Catalog=Auto_Project;"
 				"Integrated Security=True";
 			try {
 				SqlConnection^ conn = gcnew SqlConnection(connString);
